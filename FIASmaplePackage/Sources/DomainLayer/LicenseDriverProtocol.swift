@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol LicenseDriverProtocol {
+public protocol LicenseDriverProtocol {
     func getLicense() -> [License]
 }

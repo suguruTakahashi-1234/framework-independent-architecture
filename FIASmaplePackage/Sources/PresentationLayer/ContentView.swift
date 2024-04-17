@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 public struct ContentView: View {
     private let buildScheme: BuildScheme
@@ -28,6 +29,21 @@ public struct ContentView: View {
     }
 }
 
-#Preview {
+extension BuildScheme {
+    var name: String {
+        switch self {
+        case .development:
+            "Development"
+        case .production:
+            "Production"
+        }
+    }
+}
+
+#Preview("Development") {
     ContentView(buildScheme: .development)
+}
+
+#Preview("Production") {
+    ContentView(buildScheme: .production)
 }

@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import DomainLayer
 
 final class LicenseListPresenter: ObservableObject {
     @Published private(set) var licenses: [License] = []

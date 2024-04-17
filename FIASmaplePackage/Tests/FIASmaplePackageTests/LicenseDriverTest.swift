@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FIASmaplePackage
+@testable import FrameworkLayer
 
 class LicenseDriverTest: XCTestCase {
     var licenseDriver: LicenseDriver!

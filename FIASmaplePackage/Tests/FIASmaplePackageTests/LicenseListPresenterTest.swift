@@ -1,5 +1,7 @@
 import XCTest
-@testable import FIASmaplePackage
+@testable import PresentationLayer
+import DomainLayer
+import FrameworkLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var licenseDriver: LicenseDriverProtocol!

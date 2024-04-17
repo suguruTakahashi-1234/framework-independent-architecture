@@ -5,12 +5,15 @@
 //  Created by Suguru Takahashi on 2024/04/17.
 //
 
+import DomainLayer
 import Foundation
 import FirebaseCrashlytics // Depends on heavy third-party libraries as an example
 //import LicenseList
 
-class LicenseDriver: LicenseDriverProtocol {
-    func getLicense() -> [License] {
+public class LicenseDriver: LicenseDriverProtocol {
+    public init() {}
+    
+    public func getLicense() -> [License] {
 //        Library.libraries.map { library in
 //            License(from: library)
 //        }

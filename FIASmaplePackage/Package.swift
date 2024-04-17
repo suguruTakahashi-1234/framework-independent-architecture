@@ -9,9 +9,9 @@ let package = Package(
         .iOS(.v17),
     ],
     products: [
-        .library(
-            name: "FIASmaplePackage",
-            targets: ["FIASmaplePackage"]),
+        .library(name: "DomainLayer", targets: ["DomainLayer"]),
+        .library(name: "FrameworkLayer", targets: ["FrameworkLayer"]),
+        .library(name: "PresentationLayer", targets: ["PresentationLayer"]),
     ],
     dependencies: [
 //        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
@@ -22,17 +22,33 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "FIASmaplePackage",
+            name: "DomainLayer"
+        ),
+        .target(
+            name: "FrameworkLayer",
             dependencies: [
 //                .product(name: "LicenseList", package: "LicenseList")
-                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk")
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
+                "DomainLayer",
             ],
             plugins: [
                 .plugin(name: "LicensesPlugin", package: "LicensesPlugin")
             ]
         ),
+        .target(
+            name: "PresentationLayer",
+            dependencies: [
+                "DomainLayer",
+                "FrameworkLayer",
+            ]
+        ),
         .testTarget(
             name: "FIASmaplePackageTests",
-            dependencies: ["FIASmaplePackage"]),
+            dependencies: [
+                "DomainLayer",
+                "FrameworkLayer",
+                "PresentationLayer",
+            ]
+        ),
     ]
 )

@@ -1,10 +1,11 @@
 //
 //  Mocks.swift
-//  
+//
 //
 //  Created by Suguru Takahashi on 2024/04/17.
 //
 
+import DomainLayer
 import Foundation
 
 class MockLicenseDriver: LicenseDriverProtocol {

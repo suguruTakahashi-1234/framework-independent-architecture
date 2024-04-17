@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4445118F2BCFEC2500B429FD /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 4445118E2BCFEC2500B429FD /* DomainLayer */; };
+		444511912BCFEC2700B429FD /* FrameworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 444511902BCFEC2700B429FD /* FrameworkLayer */; };
+		444511932BCFEC2A00B429FD /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 444511922BCFEC2A00B429FD /* PresentationLayer */; };
 		44520A5F2BCF5F5600A78BA6 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A5E2BCF5F5600A78BA6 /* DevelopmentApp.swift */; };
 		44520A632BCF5F5700A78BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A622BCF5F5700A78BA6 /* Assets.xcassets */; };
 		44520A672BCF5F5700A78BA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A662BCF5F5700A78BA6 /* Preview Assets.xcassets */; };
 		44520A712BCF5F5700A78BA6 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A702BCF5F5700A78BA6 /* DevelopmentTests.swift */; };
 		44520A7B2BCF5F5700A78BA6 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A7A2BCF5F5700A78BA6 /* DevelopmentUITests.swift */; };
-		44520A8D2BCF609700A78BA6 /* FIASmaplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44520A8C2BCF609700A78BA6 /* FIASmaplePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44520A8D2BCF609700A78BA6 /* FIASmaplePackage in Frameworks */,
+				4445118F2BCFEC2500B429FD /* DomainLayer in Frameworks */,
+				444511932BCFEC2A00B429FD /* PresentationLayer in Frameworks */,
+				444511912BCFEC2700B429FD /* FrameworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +154,9 @@
 			);
 			name = Development;
 			packageProductDependencies = (
-				44520A8C2BCF609700A78BA6 /* FIASmaplePackage */,
+				4445118E2BCFEC2500B429FD /* DomainLayer */,
+				444511902BCFEC2700B429FD /* FrameworkLayer */,
+				444511922BCFEC2A00B429FD /* PresentationLayer */,
 			);
 			productName = Development;
 			productReference = 44520A5B2BCF5F5600A78BA6 /* Development.app */;
@@ -624,9 +630,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		44520A8C2BCF609700A78BA6 /* FIASmaplePackage */ = {
+		4445118E2BCFEC2500B429FD /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FIASmaplePackage;
+			productName = DomainLayer;
+		};
+		444511902BCFEC2700B429FD /* FrameworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FrameworkLayer;
+		};
+		444511922BCFEC2A00B429FD /* PresentationLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PresentationLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

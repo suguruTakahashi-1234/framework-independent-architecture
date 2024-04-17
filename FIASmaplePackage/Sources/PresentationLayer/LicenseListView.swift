@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import DomainLayer
+import FrameworkLayer
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
@@ -56,7 +58,7 @@ struct LicenseListView: View {
         License(id: UUID().uuidString, name: "Test Data 2 Title", body: "Test Data 2 Body"),
         License(id: UUID().uuidString, name: "Test Data 3 Title", body: "Test Data 3 Body"),
     ])
-    
+
     return NavigationStack {
         LicenseListView(licenseDriver: licenseDriver)
     }
@@ -68,7 +70,7 @@ struct LicenseListView: View {
             License(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
         }
     )
-    
+
     return NavigationStack {
         LicenseListView(licenseDriver: licenseDriver)
     }
@@ -76,7 +78,7 @@ struct LicenseListView: View {
 
 #Preview("Empty") {
     let licenseDriver = MockLicenseDriver(getLicense: [])
-    
+
     return NavigationStack {
         LicenseListView(licenseDriver: licenseDriver)
     }
