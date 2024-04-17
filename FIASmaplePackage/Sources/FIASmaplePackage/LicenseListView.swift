@@ -11,12 +11,20 @@ struct LicenseListView: View {
     @StateObject private var presenter = LicenseListPresenter()
 
     var body: some View {
-        List {
-            ForEach(presenter.licenses) { license in
-                Button {
-                    presenter.onTapLicense(license)
-                } label: {
-                    Text(license.name)
+        VStack {
+            if presenter.licenses.isEmpty {
+                Text("No Licenses")
+                    .padding()
+                Spacer()
+            } else {
+                List {
+                    ForEach(presenter.licenses) { license in
+                        Button {
+                            presenter.onTapLicense(license)
+                        } label: {
+                            Text(license.name)
+                        }
+                    }
                 }
             }
         }
