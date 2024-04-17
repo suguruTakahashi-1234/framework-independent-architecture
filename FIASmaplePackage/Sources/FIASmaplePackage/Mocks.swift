@@ -8,16 +8,14 @@
 import Foundation
 import LicenseList
 
-struct MockLicenseDriverEmpty: LicenseDriverProtocol {
-    func getLicense() -> [LicenseList.Library] {
-        []
+struct MockLicenseDriver: LicenseDriverProtocol {
+    private let _getLicense: [LicenseList.Library]
+    
+    init(getLicense: [LicenseList.Library]) {
+        self._getLicense = getLicense
     }
-}
-
-struct MockLicenseDriverLarge: LicenseDriverProtocol {
+    
     func getLicense() -> [LicenseList.Library] {
-        (0..<100).map { _ in
-            Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
-        }
+        _getLicense
     }
 }
