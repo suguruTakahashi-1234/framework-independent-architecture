@@ -12,6 +12,12 @@ final class LicenseListPresenterTest: XCTestCase {
         license = Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
     }
 
+    func testOnApper() throws {
+        XCTAssertEqual(presenter.licenses, [])
+        presenter.onAppear()
+        XCTAssertNotEqual(presenter.licenses, [])
+    }
+
     func testOnTapLicense() throws {
         XCTAssertEqual(presenter.selectedLicense, nil)
         presenter.onTapLicense(license)

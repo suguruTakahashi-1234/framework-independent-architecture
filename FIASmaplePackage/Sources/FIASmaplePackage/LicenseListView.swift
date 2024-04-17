@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-import LicenseList
 
 struct LicenseListView: View {
-    @State private var presenter = LicenseListPresenter()
+    @StateObject private var presenter = LicenseListPresenter()
 
     var body: some View {
         List {
-            ForEach(Library.libraries) { license in
+            ForEach(presenter.licenses) { license in
                 Button {
                     presenter.onTapLicense(license)
                 } label: {
@@ -26,6 +25,9 @@ struct LicenseListView: View {
             NavigationStack {
                 LicenseDetailView(license: license)
             }
+        }
+        .onAppear {
+            presenter.onAppear()
         }
     }
 }

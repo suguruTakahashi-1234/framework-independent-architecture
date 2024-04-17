@@ -9,21 +9,14 @@ import Combine
 import LicenseList
 
 final class LicenseListPresenter: ObservableObject {
+    @Published private(set) var licenses: [Library] = []
     @Published var selectedLicense: Library?
+    
+    func onAppear() {
+        licenses = Library.libraries
+    }
     
     func onTapLicense(_ license: Library) {
         selectedLicense = license
     }
 }
-
-// 以下でも可
-//import Observation
-//
-//@Observable
-//final class LicenseListPresenter {
-//    var selectedLicense: Library?
-//
-//    func onTapLicense(_ license: Library) {
-//        selectedLicense = license
-//    }
-//}
