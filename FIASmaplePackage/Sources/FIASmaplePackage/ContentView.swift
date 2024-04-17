@@ -15,12 +15,17 @@ public struct ContentView: View {
     }
 
     public var body: some View {
-        List {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-            Text("Build Scheme: \(buildScheme)")
+        NavigationStack {
+            List {
+                Section("") {
+                    NavigationLink {
+                        Text("TODO: License List")
+                    } label: {
+                        Text("Licenses")
+                    }
+                }
+            }
+            .navigationTitle(buildScheme.name)
         }
     }
 }
