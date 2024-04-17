@@ -8,19 +8,23 @@
 import SwiftUI
 
 public struct ContentView: View {
-    public init() {}
+    private let buildScheme: BuildScheme
     
+    public init(buildScheme: BuildScheme) {
+        self.buildScheme = buildScheme
+    }
+
     public var body: some View {
-        VStack {
+        List {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
+            Text("Build Scheme: \(buildScheme)")
         }
-        .padding()
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(buildScheme: .development)
 }

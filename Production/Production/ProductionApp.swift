@@ -12,7 +12,7 @@ import FIASmaplePackage
 struct ProductionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(buildScheme: .production)
         }
     }
 }
