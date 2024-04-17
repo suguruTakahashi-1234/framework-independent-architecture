@@ -6,11 +6,24 @@
 //
 
 import SwiftUI
+import LicenseList
 
 struct LicenseListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle("Licenses")
+        List {
+            ForEach(Library.libraries) { license in
+                NavigationLink {
+                    ScrollView {
+                        Text(license.licenseBody)
+                            .padding()
+                    }
+                    .navigationTitle(license.name)
+                } label: {
+                    Text(license.name)
+                }
+            }
+        }
+        .navigationTitle("Licenses")
     }
 }
 

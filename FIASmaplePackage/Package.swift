@@ -14,11 +14,18 @@ let package = Package(
             name: "FIASmaplePackage",
             targets: ["FIASmaplePackage"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "FIASmaplePackage"),
+            name: "FIASmaplePackage",
+            dependencies: [
+                .product(name: "LicenseList", package: "LicenseList")
+            ]
+        ),
         .testTarget(
             name: "FIASmaplePackageTests",
             dependencies: ["FIASmaplePackage"]),

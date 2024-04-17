@@ -13,16 +13,14 @@ public struct ContentView: View {
     public init(buildScheme: BuildScheme) {
         self.buildScheme = buildScheme
     }
-
+    
     public var body: some View {
         NavigationStack {
             List {
-                Section("") {
-                    NavigationLink {
-                        LicenseListView()
-                    } label: {
-                        Text("Licenses")
-                    }
+                NavigationLink {
+                    LicenseListView()
+                } label: {
+                    Text("Licenses")
                 }
             }
             .navigationTitle(buildScheme.name)
