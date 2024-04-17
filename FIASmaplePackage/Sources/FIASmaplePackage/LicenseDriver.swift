@@ -8,7 +8,7 @@
 import Foundation
 import LicenseList
 
-struct LicenseDriver: LicenseDriverProtocol {
+class LicenseDriver: LicenseDriverProtocol {
     func getLicense() -> [LicenseList.Library] {
         Library.libraries
     }
