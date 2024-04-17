@@ -17,6 +17,6 @@ class LicenseDriverTest: XCTestCase {
     }
 
     func testGetLicense() {
-        XCTAssertEqual(licenseDriver.getLicense().first?.name, "LicenseList")
+        XCTAssertEqual(licenseDriver.getLicense().first?.name, "abseil")
     }
 }

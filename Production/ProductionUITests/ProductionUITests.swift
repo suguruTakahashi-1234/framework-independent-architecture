@@ -18,6 +18,6 @@ final class ProductionUITests: XCTestCase {
         app.navigationBars["Production"].staticTexts["Production"].tap()
         let collectionViewsQuery = app.collectionViews
         collectionViewsQuery.staticTexts["Licenses"].tap()
-        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["LicenseList"]/*[[".cells.buttons[\"LicenseList\"]",".buttons[\"LicenseList\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionViewsQuery.buttons["abseil"].tap()
     }
 }

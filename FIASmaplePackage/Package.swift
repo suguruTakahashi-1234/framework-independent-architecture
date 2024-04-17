@@ -9,21 +9,26 @@ let package = Package(
         .iOS(.v17),
     ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "FIASmaplePackage",
             targets: ["FIASmaplePackage"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
+//        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
+        .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
+
+        // An example of a heavy third-party library
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.24.0"),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "FIASmaplePackage",
             dependencies: [
-                .product(name: "LicenseList", package: "LicenseList")
+//                .product(name: "LicenseList", package: "LicenseList")
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk")
+            ],
+            plugins: [
+                .plugin(name: "LicensesPlugin", package: "LicensesPlugin")
             ]
         ),
         .testTarget(
