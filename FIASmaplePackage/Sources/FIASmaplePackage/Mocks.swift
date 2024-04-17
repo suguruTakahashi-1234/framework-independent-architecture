@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import LicenseList
 
 class MockLicenseDriver: LicenseDriverProtocol {
-    private let _getLicense: [LicenseList.Library]
+    private let _getLicense: [License]
     
-    init(getLicense: [LicenseList.Library] = []) {
+    init(getLicense: [License] = []) {
         self._getLicense = getLicense
     }
     
     var getLicenseCallCount = 0
-    func getLicense() -> [LicenseList.Library] {
+    func getLicense() -> [License] {
         getLicenseCallCount += getLicenseCallCount + 1
         return _getLicense
     }

@@ -6,18 +6,17 @@
 //
 
 import SwiftUI
-import LicenseList
 
 struct LicenseDetailView: View {
-    private let license: Library
+    private let license: License
     
-    init(license: Library) {
+    init(license: License) {
         self.license = license
     }
     
     var body: some View {
         ScrollView {
-            Text(license.licenseBody)
+            Text(license.body)
                 .padding()
         }
         .navigationTitle(license.name)
@@ -26,6 +25,6 @@ struct LicenseDetailView: View {
 
 #Preview {
     NavigationStack {
-        LicenseDetailView(license: Library(name: "License Name", url: "url", licenseBody: "License Body"))
+        LicenseDetailView(license: License(id: UUID().uuidString, name: "test name", body: "test body"))
     }
 }

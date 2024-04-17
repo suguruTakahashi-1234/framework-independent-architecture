@@ -1,17 +1,16 @@
 import XCTest
 @testable import FIASmaplePackage
-import LicenseList
 
 final class LicenseListPresenterTest: XCTestCase {
     var licenseDriver: LicenseDriverProtocol!
     var presenter: LicenseListPresenter!
-    var license: Library!
+    var license: License!
 
     override func setUp() {
         super.setUp()
         licenseDriver = LicenseDriver()
         presenter = LicenseListPresenter(licenseDriver: licenseDriver)
-        license = Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
+        license = License(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
     }
 
     func testOnApperActualDriver() {

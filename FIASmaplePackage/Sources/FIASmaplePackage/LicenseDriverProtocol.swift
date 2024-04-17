@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import LicenseList
 
 protocol LicenseDriverProtocol {
-    func getLicense() -> [Library]
+    func getLicense() -> [License]
 }

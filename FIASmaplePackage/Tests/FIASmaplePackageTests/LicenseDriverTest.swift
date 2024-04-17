@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import FIASmaplePackage
-import LicenseList
 
 class LicenseDriverTest: XCTestCase {
     var licenseDriver: LicenseDriver!

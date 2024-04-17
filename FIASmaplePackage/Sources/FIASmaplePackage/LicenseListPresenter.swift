@@ -6,12 +6,11 @@
 //
 
 import Combine
-import LicenseList
 import Foundation
 
 final class LicenseListPresenter: ObservableObject {
-    @Published private(set) var licenses: [Library] = []
-    @Published var selectedLicense: Library?
+    @Published private(set) var licenses: [License] = []
+    @Published var selectedLicense: License?
     
     private let licenseDriver: LicenseDriverProtocol
     
@@ -23,7 +22,7 @@ final class LicenseListPresenter: ObservableObject {
         licenses = licenseDriver.getLicense()
     }
     
-    func onTapLicense(_ license: Library) {
+    func onTapLicense(_ license: License) {
         selectedLicense = license
     }
 }

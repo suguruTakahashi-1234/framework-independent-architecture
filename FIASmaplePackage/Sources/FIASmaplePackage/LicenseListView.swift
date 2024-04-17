@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LicenseList
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
@@ -53,9 +52,9 @@ struct LicenseListView: View {
 
 #Preview("Simple") {
     let licenseDriver = MockLicenseDriver(getLicense: [
-        Library(name: "Test Data 1 Title", url: UUID().uuidString, licenseBody: "Test Data 1 Body"),
-        Library(name: "Test Data 2 Title", url: UUID().uuidString, licenseBody: "Test Data 2 Body"),
-        Library(name: "Test Data 3 Title", url: UUID().uuidString, licenseBody: "Test Data 3 Body"),
+        License(id: UUID().uuidString, name: "Test Data 1 Title", body: "Test Data 1 Body"),
+        License(id: UUID().uuidString, name: "Test Data 2 Title", body: "Test Data 2 Body"),
+        License(id: UUID().uuidString, name: "Test Data 3 Title", body: "Test Data 3 Body"),
     ])
     
     return NavigationStack {
@@ -66,7 +65,7 @@ struct LicenseListView: View {
 #Preview("Large") {
     let licenseDriver = MockLicenseDriver(
         getLicense: (0..<100).map { _ in
-            Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
+            License(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
         }
     )
     

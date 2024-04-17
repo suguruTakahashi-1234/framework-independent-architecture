@@ -9,7 +9,15 @@ import Foundation
 import LicenseList
 
 class LicenseDriver: LicenseDriverProtocol {
-    func getLicense() -> [LicenseList.Library] {
-        Library.libraries
+    func getLicense() -> [License] {
+        Library.libraries.map { library in
+            License(from: library)
+        }
+    }
+}
+
+extension License {
+    init(from library: Library) {
+        self.init(id: library.id.uuidString, name: library.name, body: library.licenseBody)
     }
 }
