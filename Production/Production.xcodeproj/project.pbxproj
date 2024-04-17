@@ -12,7 +12,6 @@
 		44520A302BCF5F0F00A78BA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A2F2BCF5F0F00A78BA6 /* Preview Assets.xcassets */; };
 		44520A3A2BCF5F0F00A78BA6 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A392BCF5F0F00A78BA6 /* ProductionTests.swift */; };
 		44520A442BCF5F0F00A78BA6 /* ProductionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A432BCF5F0F00A78BA6 /* ProductionUITests.swift */; };
-		44520A462BCF5F0F00A78BA6 /* ProductionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A452BCF5F0F00A78BA6 /* ProductionUITestsLaunchTests.swift */; };
 		44520A902BCF609F00A78BA6 /* FIASmaplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44520A8F2BCF609F00A78BA6 /* FIASmaplePackage */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		44520A392BCF5F0F00A78BA6 /* ProductionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionTests.swift; sourceTree = "<group>"; };
 		44520A3F2BCF5F0F00A78BA6 /* ProductionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProductionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44520A432BCF5F0F00A78BA6 /* ProductionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionUITests.swift; sourceTree = "<group>"; };
-		44520A452BCF5F0F00A78BA6 /* ProductionUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				44520A432BCF5F0F00A78BA6 /* ProductionUITests.swift */,
-				44520A452BCF5F0F00A78BA6 /* ProductionUITestsLaunchTests.swift */,
 			);
 			path = ProductionUITests;
 			sourceTree = "<group>";
@@ -286,7 +283,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44520A442BCF5F0F00A78BA6 /* ProductionUITests.swift in Sources */,
-				44520A462BCF5F0F00A78BA6 /* ProductionUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

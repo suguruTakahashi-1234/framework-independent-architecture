@@ -9,7 +9,7 @@ import SwiftUI
 
 public struct ContentView: View {
     private let buildScheme: BuildScheme
-    
+
     public init(buildScheme: BuildScheme) {
         self.buildScheme = buildScheme
     }

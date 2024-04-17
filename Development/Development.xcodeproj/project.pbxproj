@@ -12,7 +12,6 @@
 		44520A672BCF5F5700A78BA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A662BCF5F5700A78BA6 /* Preview Assets.xcassets */; };
 		44520A712BCF5F5700A78BA6 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A702BCF5F5700A78BA6 /* DevelopmentTests.swift */; };
 		44520A7B2BCF5F5700A78BA6 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A7A2BCF5F5700A78BA6 /* DevelopmentUITests.swift */; };
-		44520A7D2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A7C2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift */; };
 		44520A8D2BCF609700A78BA6 /* FIASmaplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44520A8C2BCF609700A78BA6 /* FIASmaplePackage */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +42,6 @@
 		44520A702BCF5F5700A78BA6 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 		44520A762BCF5F5700A78BA6 /* DevelopmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevelopmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44520A7A2BCF5F5700A78BA6 /* DevelopmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentUITests.swift; sourceTree = "<group>"; };
-		44520A7C2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				44520A7A2BCF5F5700A78BA6 /* DevelopmentUITests.swift */,
-				44520A7C2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift */,
 			);
 			path = DevelopmentUITests;
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44520A7D2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift in Sources */,
 				44520A7B2BCF5F5700A78BA6 /* DevelopmentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
