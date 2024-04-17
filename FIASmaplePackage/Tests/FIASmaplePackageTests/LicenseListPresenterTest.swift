@@ -14,10 +14,19 @@ final class LicenseListPresenterTest: XCTestCase {
         license = Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
     }
 
-    func testOnApper() throws {
+    func testOnApperActualDriver() throws {
         XCTAssertEqual(presenter.licenses, [])
         presenter.onAppear()
         XCTAssertNotEqual(presenter.licenses, [])
+    }
+    
+    func testOnApperMockDriver() throws {
+        let licenseDriver = MockLicenseDriver()
+        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
+
+        XCTAssertEqual(licenseDriver.getLicenseCallCount, 0)
+        presenter.onAppear()
+        XCTAssertEqual(licenseDriver.getLicenseCallCount, 1)
     }
 
     func testOnTapLicense() throws {
