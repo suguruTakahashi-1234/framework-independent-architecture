@@ -19,7 +19,7 @@ public struct ContentView: View {
             List {
                 Section("") {
                     NavigationLink {
-                        Text("TODO: License List")
+                        LicenseListView()
                     } label: {
                         Text("Licenses")
                     }
