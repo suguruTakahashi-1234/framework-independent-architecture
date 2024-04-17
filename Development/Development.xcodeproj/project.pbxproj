@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		44520A5F2BCF5F5600A78BA6 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A5E2BCF5F5600A78BA6 /* DevelopmentApp.swift */; };
-		44520A612BCF5F5600A78BA6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A602BCF5F5600A78BA6 /* ContentView.swift */; };
 		44520A632BCF5F5700A78BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A622BCF5F5700A78BA6 /* Assets.xcassets */; };
 		44520A672BCF5F5700A78BA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A662BCF5F5700A78BA6 /* Preview Assets.xcassets */; };
 		44520A712BCF5F5700A78BA6 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A702BCF5F5700A78BA6 /* DevelopmentTests.swift */; };
 		44520A7B2BCF5F5700A78BA6 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A7A2BCF5F5700A78BA6 /* DevelopmentUITests.swift */; };
 		44520A7D2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A7C2BCF5F5700A78BA6 /* DevelopmentUITestsLaunchTests.swift */; };
+		44520A8D2BCF609700A78BA6 /* FIASmaplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44520A8C2BCF609700A78BA6 /* FIASmaplePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		44520A5B2BCF5F5600A78BA6 /* Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Development.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44520A5E2BCF5F5600A78BA6 /* DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentApp.swift; sourceTree = "<group>"; };
-		44520A602BCF5F5600A78BA6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44520A622BCF5F5700A78BA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44520A642BCF5F5700A78BA6 /* Development.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Development.entitlements; sourceTree = "<group>"; };
 		44520A662BCF5F5700A78BA6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44520A8D2BCF609700A78BA6 /* FIASmaplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +79,7 @@
 				44520A6F2BCF5F5700A78BA6 /* DevelopmentTests */,
 				44520A792BCF5F5700A78BA6 /* DevelopmentUITests */,
 				44520A5C2BCF5F5600A78BA6 /* Products */,
+				44520A892BCF608C00A78BA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				44520A5E2BCF5F5600A78BA6 /* DevelopmentApp.swift */,
-				44520A602BCF5F5600A78BA6 /* ContentView.swift */,
 				44520A622BCF5F5700A78BA6 /* Assets.xcassets */,
 				44520A642BCF5F5700A78BA6 /* Development.entitlements */,
 				44520A652BCF5F5700A78BA6 /* Preview Content */,
@@ -129,6 +129,13 @@
 			path = DevelopmentUITests;
 			sourceTree = "<group>";
 		};
+		44520A892BCF608C00A78BA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +152,9 @@
 			dependencies = (
 			);
 			name = Development;
+			packageProductDependencies = (
+				44520A8C2BCF609700A78BA6 /* FIASmaplePackage */,
+			);
 			productName = Development;
 			productReference = 44520A5B2BCF5F5600A78BA6 /* Development.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44520A612BCF5F5600A78BA6 /* ContentView.swift in Sources */,
 				44520A5F2BCF5F5600A78BA6 /* DevelopmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +626,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44520A8C2BCF609700A78BA6 /* FIASmaplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FIASmaplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44520A532BCF5F5600A78BA6 /* Project object */;
 }

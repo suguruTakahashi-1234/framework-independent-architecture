@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FIASmaplePackage
 
 @main
 struct ProductionApp: App {
