@@ -9,20 +9,20 @@ import SwiftUI
 import LicenseList
 
 struct LicenseListView: View {
-    @State private var selectedLicense: Library?
+    @State private var presenter = LicenseListPresenter()
 
     var body: some View {
         List {
             ForEach(Library.libraries) { license in
                 Button {
-                    selectedLicense = license
+                    presenter.onTapLicense(license)
                 } label: {
                     Text(license.name)
                 }
             }
         }
         .navigationTitle("Licenses")
-        .sheet(item: $selectedLicense) { license in
+        .sheet(item: $presenter.selectedLicense) { license in
             NavigationStack {
                 LicenseDetailView(license: license)
             }

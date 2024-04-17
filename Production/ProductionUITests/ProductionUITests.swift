@@ -12,12 +12,12 @@ final class ProductionUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testExample() throws {
+    func testLicense() throws {
         let app = XCUIApplication()
         app.launch()
         app.navigationBars["Production"].staticTexts["Production"].tap()
         let collectionViewsQuery = app.collectionViews
-        collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Licenses"]/*[[".cells",".buttons[\"Licenses\"].staticTexts[\"Licenses\"]",".staticTexts[\"Licenses\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionViewsQuery.staticTexts["Licenses"].tap()
         collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["LicenseList"]/*[[".cells.buttons[\"LicenseList\"]",".buttons[\"LicenseList\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
     }
 }

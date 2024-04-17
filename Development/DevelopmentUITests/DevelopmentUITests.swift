@@ -12,7 +12,7 @@ final class DevelopmentUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testExample() throws {
+    func testLicense() throws {
         let app = XCUIApplication()
         app.launch()
         app.navigationBars["Development"].staticTexts["Development"].tap()
