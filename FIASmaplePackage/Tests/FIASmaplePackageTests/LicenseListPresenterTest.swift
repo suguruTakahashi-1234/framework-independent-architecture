@@ -3,12 +3,14 @@ import XCTest
 import LicenseList
 
 final class LicenseListPresenterTest: XCTestCase {
+    var licenseDriver: LicenseDriverProtocol!
     var presenter: LicenseListPresenter!
     var license: Library!
 
     override func setUp() {
         super.setUp()
-        presenter = LicenseListPresenter()
+        licenseDriver = LicenseDriver()
+        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
         license = Library(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
     }
 

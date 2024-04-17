@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct LicenseListView: View {
-    @StateObject private var presenter = LicenseListPresenter()
+    @StateObject private var presenter: LicenseListPresenter
+
+    init(licenseDriver: LicenseDriverProtocol = LicenseDriver()) {
+        _presenter = StateObject(wrappedValue: LicenseListPresenter(licenseDriver: licenseDriver))
+    }
 
     var body: some View {
         VStack {
@@ -43,5 +47,21 @@ struct LicenseListView: View {
 #Preview {
     NavigationStack {
         LicenseListView()
+    }
+}
+
+#Preview("Large") {
+    let licenseDriver = MockLicenseDriverLarge()
+    
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
+    }
+}
+
+#Preview("Empty") {
+    let licenseDriver = MockLicenseDriverEmpty()
+    
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
     }
 }
