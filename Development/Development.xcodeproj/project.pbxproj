@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4445118F2BCFEC2500B429FD /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 4445118E2BCFEC2500B429FD /* DomainLayer */; };
-		444511912BCFEC2700B429FD /* FrameworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 444511902BCFEC2700B429FD /* FrameworkLayer */; };
 		444511932BCFEC2A00B429FD /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 444511922BCFEC2A00B429FD /* PresentationLayer */; };
 		44520A5F2BCF5F5600A78BA6 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44520A5E2BCF5F5600A78BA6 /* DevelopmentApp.swift */; };
 		44520A632BCF5F5700A78BA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44520A622BCF5F5700A78BA6 /* Assets.xcassets */; };
@@ -53,7 +52,6 @@
 			files = (
 				4445118F2BCFEC2500B429FD /* DomainLayer in Frameworks */,
 				444511932BCFEC2A00B429FD /* PresentationLayer in Frameworks */,
-				444511912BCFEC2700B429FD /* FrameworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,7 +153,6 @@
 			name = Development;
 			packageProductDependencies = (
 				4445118E2BCFEC2500B429FD /* DomainLayer */,
-				444511902BCFEC2700B429FD /* FrameworkLayer */,
 				444511922BCFEC2A00B429FD /* PresentationLayer */,
 			);
 			productName = Development;
@@ -633,10 +630,6 @@
 		4445118E2BCFEC2500B429FD /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DomainLayer;
-		};
-		444511902BCFEC2700B429FD /* FrameworkLayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FrameworkLayer;
 		};
 		444511922BCFEC2A00B429FD /* PresentationLayer */ = {
 			isa = XCSwiftPackageProductDependency;

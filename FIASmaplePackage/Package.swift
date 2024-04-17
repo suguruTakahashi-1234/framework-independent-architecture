@@ -39,13 +39,11 @@ let package = Package(
             name: "PresentationLayer",
             dependencies: [
                 "DomainLayer",
-                "FrameworkLayer",
             ]
         ),
         .testTarget(
             name: "FIASmaplePackageTests",
             dependencies: [
-                "DomainLayer",
                 "FrameworkLayer",
                 "PresentationLayer",
             ]

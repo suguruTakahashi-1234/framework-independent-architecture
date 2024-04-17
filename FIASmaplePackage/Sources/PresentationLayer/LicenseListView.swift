@@ -7,12 +7,11 @@
 
 import SwiftUI
 import DomainLayer
-import FrameworkLayer
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
 
-    init(licenseDriver: LicenseDriverProtocol = LicenseDriver()) {
+    init(licenseDriver: LicenseDriverProtocol) {
         _presenter = StateObject(wrappedValue: LicenseListPresenter(licenseDriver: licenseDriver))
     }
 
@@ -48,7 +47,7 @@ struct LicenseListView: View {
 
 #Preview {
     NavigationStack {
-        LicenseListView()
+        LicenseListView(licenseDriver: MockLicenseDriver())
     }
 }
 
