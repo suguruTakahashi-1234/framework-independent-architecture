@@ -13,7 +13,7 @@ final class LicenseListPresenter<DIContainer: DIContainerProtocol>: ObservableOb
     @Published private(set) var licenses: [License] = []
     @Published var selectedLicense: License?
     
-    private let licenseDriver: any LicenseDriverProtocol
+    private let licenseDriver: DIContainer.LicenseDriverProtocolAssocType
     private let logDriver: DIContainer.LogDriverProtocolAssocType
     
     init(diContainer: DIContainer) {

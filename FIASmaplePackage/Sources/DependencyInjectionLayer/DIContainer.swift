@@ -10,12 +10,16 @@ import PresentationLayer
 import DomainLayer
 import FrameworkLayer
 
-public final class DIContainer<LogDriver: LogDriverProtocol>: DIContainerProtocol {
+public final class DIContainer<LicenseDriver: LicenseDriverProtocol, LogDriver: LogDriverProtocol>: DIContainerProtocol {
     public let buildScheme: BuildScheme = .production
-    public let licenseDriver: any LicenseDriverProtocol = LicenseDriver()
+    public let licenseDriver: LicenseDriver
     public let logDriver: LogDriver
 
-    public init(logDriver: LogDriver = FrameworkLayer.LogDriver()) {
+    public init(
+        licenseDriver: LicenseDriver = FrameworkLayer.LicenseDriver(),
+        logDriver: LogDriver = FrameworkLayer.LogDriver()
+    ) {
+        self.licenseDriver = licenseDriver
         self.logDriver = logDriver
     }
 }

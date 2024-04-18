@@ -8,14 +8,14 @@
 import Foundation
 import DomainLayer
 
-public final class MockDIContainer<LogDriver: LogDriverProtocol>: DIContainerProtocol {
+public final class MockDIContainer<LicenseDriver: LicenseDriverProtocol, LogDriver: LogDriverProtocol>: DIContainerProtocol {
     public let buildScheme: BuildScheme
-    public let licenseDriver: any LicenseDriverProtocol
+    public let licenseDriver: LicenseDriver
     public let logDriver: LogDriver
     
     public init(
         buildScheme: BuildScheme = .development,
-        licenseDriver: any LicenseDriverProtocol = MockLicenseDriver(getLicense: .samples),
+        licenseDriver: LicenseDriver = MockLicenseDriver(getLicense: .samples),
         logDriver: LogDriver = MockLogDriver()
     ) {
         self.buildScheme = buildScheme
