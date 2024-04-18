@@ -12,7 +12,7 @@ struct LicenseDetailView: View {
     @StateObject private var presenter: LicenseDetailPresenter
     private let license: License
     
-    public init(diContainer: DIContainerProtocol, license: License) {
+    public init(diContainer: any DIContainerProtocol, license: License) {
         self.license = license
         _presenter = StateObject(wrappedValue: LicenseDetailPresenter(diContainer: diContainer))
     }

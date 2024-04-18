@@ -12,8 +12,8 @@ import FrameworkLayer
 
 public final class DIContainer: DIContainerProtocol {
     public let buildScheme: BuildScheme = .production
-    public let licenseDriver: LicenseDriverProtocol = LicenseDriver()
-    public let logDriver: LogDriverProtocol = LogDriver()
+    public let licenseDriver: any LicenseDriverProtocol = LicenseDriver()
+    public let logDriver: any LogDriverProtocol = LogDriver()
 
     public init() {}
 }

@@ -10,6 +10,6 @@ import DomainLayer
 
 public protocol DIContainerProtocol {
     var buildScheme: BuildScheme { get }
-    var licenseDriver: LicenseDriverProtocol { get }
-    var logDriver: LogDriverProtocol { get }
+    var licenseDriver: any LicenseDriverProtocol { get }
+    var logDriver: any LogDriverProtocol { get }
 }

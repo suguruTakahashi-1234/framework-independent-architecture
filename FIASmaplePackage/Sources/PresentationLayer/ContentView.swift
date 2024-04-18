@@ -9,9 +9,9 @@ import SwiftUI
 import DomainLayer
 
 public struct ContentView: View {
-    private let diContainer: DIContainerProtocol
+    private let diContainer: any DIContainerProtocol
 
-    public init(diContainer: DIContainerProtocol) {
+    public init(diContainer: any DIContainerProtocol) {
         self.diContainer = diContainer
     }
     

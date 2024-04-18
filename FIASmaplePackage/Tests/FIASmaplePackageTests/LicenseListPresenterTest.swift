@@ -4,7 +4,7 @@ import DomainLayer
 import FrameworkLayer
 
 final class LicenseListPresenterTest: XCTestCase {
-    var licenseDriver: LicenseDriverProtocol!
+    var licenseDriver: (any LicenseDriverProtocol)!
     var presenter: LicenseListPresenter!
     var license: License!
 

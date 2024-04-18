@@ -13,10 +13,10 @@ final class LicenseListPresenter: ObservableObject {
     @Published private(set) var licenses: [License] = []
     @Published var selectedLicense: License?
     
-    private let licenseDriver: LicenseDriverProtocol
-    private let logDriver: LogDriverProtocol
+    private let licenseDriver: any LicenseDriverProtocol
+    private let logDriver: any LogDriverProtocol
     
-    init(diContainer: DIContainerProtocol) {
+    init(diContainer: any DIContainerProtocol) {
         self.licenseDriver = diContainer.licenseDriver
         self.logDriver = diContainer.logDriver
     }
