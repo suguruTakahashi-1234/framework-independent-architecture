@@ -8,7 +8,7 @@
 import SwiftUI
 import DomainLayer
 
-public struct ContentView<DIContainer: DIContainerProtocol>: View {
+public struct ContentView<DIContainer: DIContainerDependency>: View {
     private let diContainer: DIContainer
 
     public init(diContainer: DIContainer) {

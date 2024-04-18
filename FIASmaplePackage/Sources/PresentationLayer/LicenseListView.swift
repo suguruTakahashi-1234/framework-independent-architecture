@@ -8,7 +8,7 @@
 import SwiftUI
 import DomainLayer
 
-struct LicenseListView<DIContainer: DIContainerProtocol>: View {
+struct LicenseListView<DIContainer: DIContainerDependency>: View {
     private let diContainer: DIContainer
     @StateObject private var presenter: LicenseListPresenter<DIContainer>
 

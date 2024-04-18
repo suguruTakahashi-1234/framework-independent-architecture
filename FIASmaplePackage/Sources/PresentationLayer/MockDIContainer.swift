@@ -8,7 +8,7 @@
 import Foundation
 import DomainLayer
 
-public final class MockDIContainer<LicenseDriver: LicenseDriverProtocol, LogDriver: LogDriverProtocol>: DIContainerProtocol {
+public final class MockDIContainer<LicenseDriver: LicenseDriverProtocol, LogDriver: LogDriverProtocol>: DIContainerDependency {
     public let buildScheme: BuildScheme
     public let licenseDriver: LicenseDriver
     public let logDriver: LogDriver

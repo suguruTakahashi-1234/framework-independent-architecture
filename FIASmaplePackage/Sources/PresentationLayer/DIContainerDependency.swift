@@ -8,6 +8,6 @@
 import Foundation
 import DomainLayer
 
-public protocol DIContainerProtocol: LicenseListPresenterDependency, LicenseDetailPresenterDependency {
+public protocol DIContainerDependency: LicenseListPresenterDependency, LicenseDetailPresenterDependency {
     var buildScheme: BuildScheme { get }
 }
