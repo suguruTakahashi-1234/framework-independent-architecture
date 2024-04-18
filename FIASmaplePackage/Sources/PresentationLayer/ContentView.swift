@@ -9,26 +9,22 @@ import SwiftUI
 import DomainLayer
 
 public struct ContentView: View {
-    private let buildScheme: BuildScheme
-    private let licenseDriver: LicenseDriverProtocol
-    private let logDriver: LogDriverProtocol
+    private let diContainer: DIContainerProtocol
 
-    public init(buildScheme: BuildScheme, licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
-        self.buildScheme = buildScheme
-        self.licenseDriver = licenseDriver
-        self.logDriver = logDriver
+    public init(diContainer: DIContainerProtocol) {
+        self.diContainer = diContainer
     }
-
+    
     public var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    LicenseListView(licenseDriver: licenseDriver, logDriver: logDriver)
+                    LicenseListView(diContainer: diContainer)
                 } label: {
                     Text("Licenses")
                 }
             }
-            .navigationTitle(buildScheme.name)
+            .navigationTitle(diContainer.buildScheme.name)
         }
     }
 }
@@ -45,9 +41,9 @@ extension BuildScheme {
 }
 
 #Preview("Development") {
-    ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(), logDriver: MockLogDriver())
+    ContentView(diContainer: MockDIContainer(buildScheme: .development))
 }
 
 #Preview("Production") {
-    ContentView(buildScheme: .production, licenseDriver: MockLicenseDriver(), logDriver: MockLogDriver())
+    ContentView(diContainer: MockDIContainer(buildScheme: .production))
 }

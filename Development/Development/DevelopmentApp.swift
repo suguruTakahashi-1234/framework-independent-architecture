@@ -13,7 +13,7 @@ import DomainLayer
 struct DevelopmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(getLicense: .samples), logDriver: MockLogDriver())
+            ContentView(diContainer: MockDIContainer())
         }
     }
 }

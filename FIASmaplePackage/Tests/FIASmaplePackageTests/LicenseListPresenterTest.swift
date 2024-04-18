@@ -11,7 +11,7 @@ final class LicenseListPresenterTest: XCTestCase {
     override func setUp() {
         super.setUp()
         licenseDriver = LicenseDriver()
-        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
+        presenter = LicenseListPresenter(diContainer: MockDIContainer(licenseDriver: licenseDriver))
         license = License(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
     }
 
@@ -23,7 +23,7 @@ final class LicenseListPresenterTest: XCTestCase {
 
     func testOnApperMockDriver() {
         let licenseDriver = MockLicenseDriver()
-        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
+        presenter = LicenseListPresenter(diContainer: MockDIContainer(licenseDriver: licenseDriver))
 
         XCTAssertEqual(licenseDriver.getLicenseCallCount, 0)
         presenter.onAppear()

@@ -16,15 +16,15 @@ final class LicenseListPresenter: ObservableObject {
     private let licenseDriver: LicenseDriverProtocol
     private let logDriver: LogDriverProtocol
     
-    init(licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
-        self.licenseDriver = licenseDriver
-        self.logDriver = logDriver
+    init(diContainer: DIContainerProtocol) {
+        self.licenseDriver = diContainer.licenseDriver
+        self.logDriver = diContainer.logDriver
     }
-    
+
     func onAppear() {
         licenses = licenseDriver.getLicense()
     }
-    
+
     func onTapLicense(_ license: License) {
         logDriver.log("onTapLicense \(license.name)")
         selectedLicense = license
