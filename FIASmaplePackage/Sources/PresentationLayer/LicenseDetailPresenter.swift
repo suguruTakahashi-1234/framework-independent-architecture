@@ -9,14 +9,14 @@ import Combine
 import Foundation
 import DomainLayer
 
-final class LicenseDetailPresenter<DIContainer: DIContainerProtocol>: ObservableObject {
-    private let logDriver: DIContainer.LogDriverProtocolAssocType
+final class LicenseDetailPresenter<DIContainer: LicenseDetailPresenterDependency>: ObservableObject {
+    private let diContainer: DIContainer
     
     init(diContainer: DIContainer) {
-        self.logDriver = diContainer.logDriver
+        self.diContainer = diContainer
     }
 
     func onAppear() {
-        logDriver.log("Show Screen LicenseDetail")
+        diContainer.logDriver.log("Show Screen LicenseDetail")
     }
 }

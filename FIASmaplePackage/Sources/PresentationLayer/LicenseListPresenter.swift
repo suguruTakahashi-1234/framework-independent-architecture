@@ -9,25 +9,23 @@ import Combine
 import Foundation
 import DomainLayer
 
-final class LicenseListPresenter<DIContainer: DIContainerProtocol>: ObservableObject {
+final class LicenseListPresenter<DIContainer: LicenseListPresenterDependency>: ObservableObject {
     @Published private(set) var licenses: [License] = []
     @Published var selectedLicense: License?
     
-    private let licenseDriver: DIContainer.LicenseDriverProtocolAssocType
-    private let logDriver: DIContainer.LogDriverProtocolAssocType
+    private let diContainer: DIContainer
     
     init(diContainer: DIContainer) {
-        self.licenseDriver = diContainer.licenseDriver
-        self.logDriver = diContainer.logDriver
+        self.diContainer = diContainer
     }
 
     func onAppear() {
-        logDriver.log("Show Screen LicenseList")
-        licenses = licenseDriver.getLicense()
+        diContainer.logDriver.log("Show Screen LicenseList")
+        licenses = diContainer.licenseDriver.getLicense()
     }
 
     func onTapLicense(_ license: License) {
-        logDriver.log("onTapLicense \(license.name)")
+        diContainer.logDriver.log("onTapLicense \(license.name)")
         selectedLicense = license
     }
 }
