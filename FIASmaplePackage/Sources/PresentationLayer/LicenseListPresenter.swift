@@ -22,6 +22,7 @@ final class LicenseListPresenter: ObservableObject {
     }
 
     func onAppear() {
+        logDriver.log("Show Screen LicenseList")
         licenses = licenseDriver.getLicense()
     }
 

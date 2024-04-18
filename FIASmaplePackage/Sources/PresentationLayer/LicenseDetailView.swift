@@ -9,23 +9,28 @@ import SwiftUI
 import DomainLayer
 
 struct LicenseDetailView: View {
+    @StateObject private var presenter: LicenseDetailPresenter
     private let license: License
     
-    init(license: License) {
+    public init(diContainer: DIContainerProtocol, license: License) {
         self.license = license
+        _presenter = StateObject(wrappedValue: LicenseDetailPresenter(diContainer: diContainer))
     }
-    
+
     var body: some View {
         ScrollView {
             Text(license.body)
                 .padding()
         }
         .navigationTitle(license.name)
+        .onAppear {
+            presenter.onAppear()
+        }
     }
 }
 
 #Preview {
     NavigationStack {
-        LicenseDetailView(license: .sample)
+        LicenseDetailView(diContainer: MockDIContainer(), license: .sample)
     }
 }

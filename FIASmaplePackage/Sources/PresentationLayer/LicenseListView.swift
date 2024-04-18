@@ -9,9 +9,11 @@ import SwiftUI
 import DomainLayer
 
 struct LicenseListView: View {
+    private let diContainer: DIContainerProtocol
     @StateObject private var presenter: LicenseListPresenter
 
     public init(diContainer: DIContainerProtocol) {
+        self.diContainer = diContainer
         _presenter = StateObject(wrappedValue: LicenseListPresenter(diContainer: diContainer))
     }
 
@@ -36,7 +38,7 @@ struct LicenseListView: View {
         .navigationTitle("Licenses")
         .sheet(item: $presenter.selectedLicense) { license in
             NavigationStack {
-                LicenseDetailView(license: license)
+                LicenseDetailView(diContainer: diContainer, license: license)
             }
         }
         .onAppear {
