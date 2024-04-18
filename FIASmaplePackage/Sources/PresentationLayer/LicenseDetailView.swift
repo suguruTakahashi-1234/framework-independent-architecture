@@ -26,6 +26,6 @@ struct LicenseDetailView: View {
 
 #Preview {
     NavigationStack {
-        LicenseDetailView(license: License(id: UUID().uuidString, name: "test name", body: "test body"))
+        LicenseDetailView(license: .sample)
     }
 }

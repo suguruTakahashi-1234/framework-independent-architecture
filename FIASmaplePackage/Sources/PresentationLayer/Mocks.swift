@@ -21,3 +21,12 @@ public final class MockLicenseDriver: LicenseDriverProtocol {
         return _getLicense
     }
 }
+
+public final class MockLogDriver: LogDriverProtocol {
+    public init() {}
+    
+    public func log(_ even: Any, file: String, function: String, line: Int) {
+        let logMessage = "\(even), file: \(file), function: \(function), line: \(line)"
+        print("MockLogDriver: \(logMessage)")
+    }
+}

@@ -11,8 +11,11 @@ import DomainLayer
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
 
-    init(licenseDriver: LicenseDriverProtocol) {
-        _presenter = StateObject(wrappedValue: LicenseListPresenter(licenseDriver: licenseDriver))
+    init(licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
+        _presenter = StateObject(wrappedValue: LicenseListPresenter(
+            licenseDriver: licenseDriver,
+            logDriver: logDriver
+        ))
     }
 
     var body: some View {
@@ -47,19 +50,15 @@ struct LicenseListView: View {
 
 #Preview {
     NavigationStack {
-        LicenseListView(licenseDriver: MockLicenseDriver())
+        LicenseListView(licenseDriver: MockLicenseDriver(), logDriver: MockLogDriver())
     }
 }
 
 #Preview("Simple") {
-    let licenseDriver = MockLicenseDriver(getLicense: [
-        License(id: UUID().uuidString, name: "Test Data 1 Title", body: "Test Data 1 Body"),
-        License(id: UUID().uuidString, name: "Test Data 2 Title", body: "Test Data 2 Body"),
-        License(id: UUID().uuidString, name: "Test Data 3 Title", body: "Test Data 3 Body"),
-    ])
+    let licenseDriver = MockLicenseDriver(getLicense: .samples)
 
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver)
+        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 }
 
@@ -71,7 +70,7 @@ struct LicenseListView: View {
     )
 
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver)
+        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 }
 
@@ -79,6 +78,6 @@ struct LicenseListView: View {
     let licenseDriver = MockLicenseDriver(getLicense: [])
 
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver)
+        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 }

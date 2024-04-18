@@ -12,6 +12,7 @@ let package = Package(
         .library(name: "DomainLayer", targets: ["DomainLayer"]),
         .library(name: "FrameworkLayer", targets: ["FrameworkLayer"]),
         .library(name: "PresentationLayer", targets: ["PresentationLayer"]),
+        .library(name: "DependencyInjectionLayer", targets: ["DependencyInjectionLayer"]),
     ],
     dependencies: [
 //        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
@@ -21,6 +22,13 @@ let package = Package(
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.24.0"),
     ],
     targets: [
+        .target(
+            name: "DependencyInjectionLayer",
+            dependencies: [
+                "FrameworkLayer",
+                "PresentationLayer",
+            ]
+        ),
         .target(
             name: "DomainLayer"
         ),
