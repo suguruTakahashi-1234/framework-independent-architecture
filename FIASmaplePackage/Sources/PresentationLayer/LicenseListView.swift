@@ -8,11 +8,11 @@
 import SwiftUI
 import DomainLayer
 
-struct LicenseListView: View {
-    private let diContainer: any DIContainerProtocol
-    @StateObject private var presenter: LicenseListPresenter
+struct LicenseListView<DIContainer: DIContainerProtocol>: View {
+    private let diContainer: DIContainer
+    @StateObject private var presenter: LicenseListPresenter<DIContainer>
 
-    public init(diContainer: any DIContainerProtocol) {
+    public init(diContainer: DIContainer) {
         self.diContainer = diContainer
         _presenter = StateObject(wrappedValue: LicenseListPresenter(diContainer: diContainer))
     }

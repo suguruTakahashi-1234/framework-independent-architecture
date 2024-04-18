@@ -9,14 +9,14 @@ import Combine
 import Foundation
 import DomainLayer
 
-final class LicenseListPresenter: ObservableObject {
+final class LicenseListPresenter<DIContainer: DIContainerProtocol>: ObservableObject {
     @Published private(set) var licenses: [License] = []
     @Published var selectedLicense: License?
     
     private let licenseDriver: any LicenseDriverProtocol
-    private let logDriver: any LogDriverProtocol
+    private let logDriver: DIContainer.LogDriverProtocolAssocType
     
-    init(diContainer: any DIContainerProtocol) {
+    init(diContainer: DIContainer) {
         self.licenseDriver = diContainer.licenseDriver
         self.logDriver = diContainer.logDriver
     }

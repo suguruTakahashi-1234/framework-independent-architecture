@@ -9,10 +9,10 @@ import Combine
 import Foundation
 import DomainLayer
 
-final class LicenseDetailPresenter: ObservableObject {
-    private let logDriver: any LogDriverProtocol
+final class LicenseDetailPresenter<DIContainer: DIContainerProtocol>: ObservableObject {
+    private let logDriver: DIContainer.LogDriverProtocolAssocType
     
-    init(diContainer: any DIContainerProtocol) {
+    init(diContainer: DIContainer) {
         self.logDriver = diContainer.logDriver
     }
 
