@@ -5,11 +5,12 @@
 //  Created by Suguru Takahashi on 2024/04/18.
 //
 
-import Combine
 import Foundation
 import DomainLayer
+import Observation
 
-final class LicenseDetailPresenter<DIContainer: LicenseDetailPresenterDependency>: ObservableObject {
+@Observable
+final class LicenseDetailPresenter<DIContainer: LicenseDetailPresenterDependency> {
     private let diContainer: DIContainer
     
     init(diContainer: DIContainer) {

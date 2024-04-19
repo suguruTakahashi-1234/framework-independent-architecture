@@ -10,11 +10,11 @@ import DomainLayer
 
 struct LicenseListView<DIContainer: DIContainerDependency>: View {
     private let diContainer: DIContainer
-    @StateObject private var presenter: LicenseListPresenter<DIContainer>
+    @State private var presenter: LicenseListPresenter<DIContainer>
 
     public init(diContainer: DIContainer) {
         self.diContainer = diContainer
-        _presenter = StateObject(wrappedValue: LicenseListPresenter(diContainer: diContainer))
+        presenter = LicenseListPresenter(diContainer: diContainer)
     }
 
     var body: some View {
@@ -50,14 +50,6 @@ struct LicenseListView<DIContainer: DIContainerDependency>: View {
 #Preview {
     NavigationStack {
         LicenseListView(diContainer: MockDIContainer())
-    }
-}
-
-#Preview("Simple") {
-    let licenseDriver = MockLicenseDriver(getLicense: .samples)
-
-    return NavigationStack {
-        LicenseListView(diContainer: MockDIContainer(licenseDriver: licenseDriver))
     }
 }
 

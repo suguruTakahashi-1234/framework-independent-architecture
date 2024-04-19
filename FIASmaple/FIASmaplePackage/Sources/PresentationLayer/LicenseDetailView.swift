@@ -9,12 +9,12 @@ import SwiftUI
 import DomainLayer
 
 struct LicenseDetailView<DIContainer: DIContainerDependency>: View {
-    @StateObject private var presenter: LicenseDetailPresenter<DIContainer>
+    @State private var presenter: LicenseDetailPresenter<DIContainer>
     private let license: License
     
     public init(diContainer: DIContainer, license: License) {
         self.license = license
-        _presenter = StateObject(wrappedValue: LicenseDetailPresenter(diContainer: diContainer))
+        presenter = LicenseDetailPresenter(diContainer: diContainer)
     }
 
     var body: some View {
