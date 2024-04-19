@@ -18,6 +18,6 @@ public class LogDriver: LogDriverProtocol {
         // Actually send logs to Crashlytics but print() instead
         // Crashlytics.crashlytics().log(logMessage)
 
-        print("LogDriver: \(logMessage)")
+        print("[Crashlytics LogDriver] \(logMessage)")
     }
 }

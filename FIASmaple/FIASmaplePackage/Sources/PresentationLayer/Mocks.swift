@@ -27,6 +27,6 @@ public final class MockLogDriver: LogDriverProtocol {
     
     public func log(_ even: Any, file: String, function: String, line: Int) {
         let logMessage = "\(even), file: \(file), function: \(function), line: \(line)"
-        print("MockLogDriver: \(logMessage)")
+        print("[Mock LogDriver] \(logMessage)")
     }
 }
