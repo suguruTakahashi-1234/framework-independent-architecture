@@ -7,6 +7,7 @@ let package = Package(
     name: "FIASmaplePackage",
     platforms: [
         .iOS(.v17),
+        .macOS(.v14),
     ],
     products: [
         .library(name: "DomainLayer", targets: ["DomainLayer"]),
