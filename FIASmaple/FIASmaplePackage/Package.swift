@@ -16,7 +16,6 @@ let package = Package(
         .library(name: "DependencyInjectionLayer", targets: ["DependencyInjectionLayer"]),
     ],
     dependencies: [
-//        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
         .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
 
         // An example of a heavy third-party library
@@ -36,7 +35,6 @@ let package = Package(
         .target(
             name: "FrameworkLayer",
             dependencies: [
-//                .product(name: "LicenseList", package: "LicenseList")
                 .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
                 "DomainLayer",
             ],
