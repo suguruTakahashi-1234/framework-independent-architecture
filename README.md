@@ -4,46 +4,49 @@
 
 ## Overview
 
-Framework-Independent Architecture（FIA）は、Swift でのアプリ開発における Swift Package Manager を用いたマルチモジュール、マルチプロジェクト構成を取り入れ、Clean Architecture の設計概念をベースにしたアーキテクチャです。
+Framework-Independent Architecture (FIA) とは、Swift でのアプリ開発のための新たに提案されるアーキテクチャです。
+このアーキテクチャは Swift Package Manager を用いたマルチモジュール、マルチプロジェクト構成を取り入れ、Clean Architecture の設計原則に基づいています。
 
-FIA を採用する主な目的は、Clean Architecture に由来する独立性とテスタビリティといったメリットを享受しつつ、Xcode でのビルド時間を短縮することにあります。
+FIA の主な目的は、Clean Architecture が提供する独立性やテスタビリティといったメリットを享受すると同時に、Xcode のビルド時間の短縮を実現することにあります。
 
-FIA では、アプリケーションのエントリーポイントにおける依存性の注入により、プレゼンテーション層だけではなくアプリケーション層にもクリーンな領域を保持することを可能にしています。
+このアーキテクチャは、アプリケーションのエントリーポイントにおける依存性の注入を利用して、プレゼンテーション層だけでなくアプリケーション層にもクリーンな領域を提供します。
 
-これによりフレームワーク層に依存しない高速なアプリケーションビルドが可能となり、Xcode でのビルド作業の時間短縮に寄与し、全体的な開発体験の向上が期待できます。
+このような設計により、フレームワーク層に依存しない高速なアプリケーションビルドが可能となり、Xcode でのビルド時間の削減が期待できます。
 
-FIA のアーキテクチャ全体像と依存関係の方向性を以下の図に示します。特に、開発用のアプリケーションレイヤーまで拡張されたクリーンな領域が視覚的に表現されています。
+以下に示す図は、FIAのアーキテクチャ全体像と依存関係の方向性を表しています。開発用のアプリケーションレイヤーまで拡張されたクリーンな領域を視覚的に表現しています。
 
 <div align="center">
 <img src="./assets/drawio/architecture_outline.drawio.svg"/>
 </div>
 
-次に示す円形の図は、FIA のアーキテクチャでの依存関係が内側への方向に限定されていることを示しています。
+また、下図の円形のアーキテクチャは、FIA における依存関係が内向きであることを示しており、各レイヤー間の明確な境界と独立性を保っています。
 
 <div align="center">
 <img src="./assets/drawio/architecture_circle.drawio.svg"/>
 </div>
 
+Framework-Independent Architecture (FIA) における "Framework" は図の "Framework Layer" を指し、Clean Architecture の最も外側のレイヤーに相当します。このレイヤーは、データアクセス層 (Data Access Layer) やインフラストラクチャ層 (Infrastructure Layer) とも呼ばれ、外部フレームワークやデータベース、ネットワーク通信などの詳細に依存する部分です。FIA ではこのレイヤーを非クリーン領域として位置づけ、開発用のアプリケーションレイヤーをクリーンに保ちつつ、本番環境のアプリケーションレイヤーのみが非クリーン領域に依存する構造を採用しています。このアプローチは、開発中のアプリケーションビルドの時間短縮を目指すものです。
+
 ## Swift Package Manager による FIA の実現
 
-Swfit Package Manager によって、[isowords](https://github.com/pointfreeco/isowords) に見られるように、アプリケーションをマルチモジュールやマルチプロジェクト構成に簡単に適用できるようになりました。
+Swift Package Manager の登場によって、[isowords](https://github.com/pointfreeco/isowords) に見られるように、アプリケーションをマルチモジュールやマルチプロジェクト構成へ簡単に適用できるようになりました。
 
-Swift Package Manager におけるモジュールの分割は通常、機能に応じて行われますが、FIA では Clean Architecture の設計概念に基づいて、各レイヤーごとにモジュールを分割する手法を採用しています。
+Swift Package Manager におけるモジュールの分割は通常、機能に応じて行われますが、FIA では Clean Architecture の設計原則に基づいて、各レイヤーごとにモジュールを分割する手法を採用しています。
 
 また、Package.swift での依存関係の記述を通じて、Swift Package Manager はモジュール間の依存方向の管理を容易に行うことができます。
-この点で、依存の方向を重視する Clean Architecture との相性が良く、Swift Package Manager は Clean Architecture を実現するのに適していると言えるでしょう。
+この点で、依存関係の方向性を重視する Clean Architecture との相性が良く、Swift Package Manager は Clean Architecture を実現するのに適していると言えるでしょう。
 
 さらに、FIA ではアプリケーションのエントリーポイントで依存性を注入することにより、適切な DI コンテナを選択することが可能です。
-これにより、マルチプロジェクト構成を活用して、フレームワーク層に依存しないモック用の DI コンテナを使用する開発用プロジェクトと、フレームワーク層に依存する実際の DI コンテナを使用する本番用プロジェクトをそれぞれ設定できます。
+これにより、マルチプロジェクト構成を活用して、フレームワーク層に依存しないモックの DI コンテナを使用する開発用プロジェクトと、フレームワーク層に依存する実際の DI コンテナを使用する本番用プロジェクトをそれぞれ設定できます。
 
-開発用のプロジェクトでは、Firebase SDKのようなビルド時間が長い外部ライブラリに依存せず、アプリケーションのビルド時間を大幅に短縮することができます。
+開発用のプロジェクトでは、Firebase SDK を一例とするようなビルド時間が長い外部ライブラリに依存しないことで、アプリケーションのビルド時間を大幅に短縮することができます。
 この効果は、Xcode Previews のビルド速度の向上にも寄与します。
 
 ## Example Projects
 
 以下のリンクは、FIA のコンセプトを実際のプロジェクトに適用したサンプル・コードを含むリポジトリです。これらの例は、FIA の設計原則をよりよく理解し、自身のプロジェクトに適用するのに役立ちます。
 
-- [framework-independent-architecture/FIASmaple](https://github.com/suguruTakahashi-1234/framework-independent-architecture) (this repository)
+- [framework-independent-architecture/FIASmaple](https://github.com/suguruTakahashi-1234/framework-independent-architecture/tree/main/FIASmaple) (this repository)
 - [FIA Practical Sample](https://github.com/suguruTakahashi-1234/fia-practical-sample.git)
 
 > [!NOTE]
@@ -369,8 +372,8 @@ FIA を実装する過程で遭遇する可能性のある技術的課題を以�
   - `protocol` を用いる際に、`any` ではなく `some` を使用する場合は、型の解決が必要となり、コードが複雑になります。
 - **ボイラーコードの増加**：
   - アーキテクチャの実現のために多くのボイラーコードが必要になり、たとえ単純な View を 1 つ追加する場合でも、多くのコードを実装する必要があります。
-- **モック用の DI コンテナの準備**：
-  - 依存関係が変更されるたびに、モック用の DI コンテナの修正が生じます。この作業は頻繁に発生し、多くの手間がかかります。
+- **モックの DI コンテナの準備**：
+  - 依存関係が変更されるたびにモックの DI コンテナを修正する必要があります。この作業は頻繁に発生し、多くの手間がかかります。
 - **View のテスト制約**：
   - View のテストは XCUITest でのテスト実行、または Xcode Previews での目視での確認になります。
     - XCUITest は、実行時間が長く、また、複数のテストケースの作成や変更があった際のメンテナンス性が低いです。
