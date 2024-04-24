@@ -34,7 +34,7 @@ Swift Package Manager の登場によって、[isowords](https://github.com/poin
 Swift Package Manager におけるモジュールの分割は通常、機能に応じて行われますが、FIA では Clean Architecture の設計原則に基づいて、各レイヤーごとにモジュールを分割する手法を採用しています。
 
 また、Package.swift での依存関係の記述を通じて、Swift Package Manager はモジュール間の依存方向の管理を容易に行うことができます。
-この点で、依存関係の方向性を重視する Clean Architecture との相性が良く、Swift Package Manager は Clean Architecture を実現するのに適していると言えるでしょう。
+この点で、依存関係の方向性を重視する Clean Architecture との相性が良く、Swift Package Manager は Clean Architecture を実装するのに適しています。
 
 さらに、FIA ではアプリケーションのエントリーポイントで依存性を注入することにより、適切な DI コンテナを選択することが可能です。
 これにより、マルチプロジェクト構成を活用して、フレームワーク層に依存しないモックの DI コンテナを使用する開発用プロジェクトと、フレームワーク層に依存する実際の DI コンテナを使用する本番用プロジェクトをそれぞれ設定できます。
@@ -43,8 +43,7 @@ Swift Package Manager におけるモジュールの分割は通常、機能に�
 この効果は、Xcode Previews のビルド速度の向上にも寄与します。
 
 ## Example Projects
-
-以下のリンクは、FIA のコンセプトを実際のプロジェクトに適用したサンプル・コードを含むリポジトリです。これらの例は、FIA の設計原則をよりよく理解し、自身のプロジェクトに適用するのに役立ちます。
+以下のリンク先のリポジトリには、実際のプロジェクトにFIAのコンセプトを適用したサンプルコードが含まれています。これらの例は、FIA の設計原則をよりよく理解し、自身のプロジェクトに適用するのに役立ちます。
 
 - [framework-independent-architecture/FIASmaple](https://github.com/suguruTakahashi-1234/framework-independent-architecture/tree/main/FIASmaple) (this repository)
 - [FIA Practical Sample](https://github.com/suguruTakahashi-1234/fia-practical-sample.git)
@@ -62,9 +61,9 @@ FIA の実装における詳細なアーキテクチャは以下の図に示し�
 
 この図に示されている構成はあくまでも一例に過ぎず、プロジェクトの要件に応じてカスタマイズが可能です。また、実際にこれから紹介するコードは、このリポジトリのコードを一部改変したものですが、基本的な構成は同じです。
 
-### Sample App (Demo)
+## Sample App
 
-以下は、本章で紹介するサンプルコードによって作成されたアプリケーションのデモです。このアプリは、ライセンス情報を表示するシンプルな View を提供します。
+以下はこの章で紹介するサンプルコードを使って作成されたアプリケーションのデモンストレーションです。このアプリは、ライセンス情報を表示するシンプルな View を提供します。
 
 <div align="center">
 <img src="./assets/animations/demo.gif" width="240">
@@ -383,7 +382,7 @@ FIA を実装する過程で遭遇する可能性のある技術的課題を以�
 
 ## License
 
-ライセンスの権利と制限については [LICENSE](./LICENSE.md) ファイルをご覧ください（MIT）。
+ライセンスの権利と制限については [LICENSE](./LICENSE) ファイルをご覧ください（MIT）。
 
 ## Additional Resources
 
