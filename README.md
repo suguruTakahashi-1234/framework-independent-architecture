@@ -2,7 +2,7 @@
 
 # Framework-Independent Architecture (FIA)
 
-## 概要
+## Overview
 
 Framework-Independent Architecture（FIA）は、Swift でのアプリ開発における Swift Package Manager を用いたマルチモジュール、マルチプロジェクト構成を取り入れ、Clean Architecture の設計概念をベースにしたアーキテクチャです。
 
@@ -11,8 +11,6 @@ FIA を採用する主な目的は、Clean Architecture に由来する独立性
 FIA では、アプリケーションのエントリーポイントにおける依存性の注入により、プレゼンテーション層だけではなくアプリケーション層にもクリーンな領域を保持することを可能にしています。
 
 これによりフレームワーク層に依存しない高速なアプリケーションビルドが可能となり、Xcode でのビルド作業の時間短縮に寄与し、全体的な開発体験の向上が期待できます。
-
-## アーキテクチャの概観
 
 FIA のアーキテクチャ全体像と依存関係の方向性を以下の図に示します。特に、開発用のアプリケーションレイヤーまで拡張されたクリーンな領域が視覚的に表現されています。
 
@@ -51,29 +49,287 @@ Swift Package Manager におけるモジュールの分割は通常、機能に�
 > [!NOTE]
 > FIA のアーキテクチャを採用したさらなるサンプルコードを募集しています。自身のプロジェクトで FIA を採用した場合、ぜひリポジトリのリンクを共有してください。共有されたプロジェクトは、このセクションで紹介します。
 
-## アーキテクチャの詳細
+## Architecture Detail
 
-FIA の実装における詳細なアーキテクチャは以下のの図に示されています。
+FIA の実装における詳細なアーキテクチャは以下の図に示します。
 
 <div align="center">
 <img src="./assets/drawio/architecture_detail.drawio.svg"/>
 </div>
 
-この図に示されている構成は一例であり、実際にはプロジェクトのニーズに応じて変更が可能です。さらに、これから紹介するコードサンプルはこのリポジトリにも公開しており、実際の使用例として参照できます。
+この図に示されている構成はあくまでも一例に過ぎず、プロジェクトの要件に応じてカスタマイズが可能です。また、実際にこれから紹介するコードは、このリポジトリのコードを一部改変したものですが、基本的な構成は同じです。
 
-### FIA のサンプルコード
+### Sample App (Demo)
+
+以下は、本章で紹介するサンプルコードによって作成されたアプリケーションのデモです。このアプリは、ライセンス情報を表示するシンプルな View を提供します。
+
+<div align="center">
+<img src="./assets/animations/demo.gif" width="240">
+</div>
+
+### Sample Code
+
+<details><summary>Package.swift</summary>
+
+#### Package.swift
 
 ```swift
-// TODO: 
+let package = Package(
+    // ... omitted ...
+    dependencies: [
+        // sample third party library
+        .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
+    ],
+    targets: [
+        .target(
+            name: "DependencyInjectionLayer",
+            dependencies: ["FrameworkLayer", "PresentationLayer"]
+        ),
+        .target(
+            name: "DomainLayer"
+        ),
+        .target(
+            name: "FrameworkLayer",
+            dependencies: ["DomainLayer"],
+            plugins: [.plugin(name: "LicensesPlugin", package: "LicensesPlugin")]
+        ),
+        .target(
+            name: "PresentationLayer",
+            dependencies: ["DomainLayer"]
+        )
+    ]
+)
 ```
 
-```swift
-// TODO: 
+#### Dependency Diagram
+
+```mermaid
+graph TD;
+    DependencyInjectionLayer-->FrameworkLayer;
+    DependencyInjectionLayer-->PresentationLayer;
+    PresentationLayer-->DomainLayer;
+    FrameworkLayer-->DomainLayer;
+    FrameworkLayer-->LicensesPlugin;
 ```
 
+</details>
+
+<details><summary>Domain layer</summary>
+
+#### Entity
+
 ```swift
-// TODO: 
+public struct License: Identifiable, Equatable {
+    public let id: String
+    public let name: String
+    public let body: String
+    
+    public init(id: String, name: String, body: String) {
+        self.id = id
+        self.name = name
+        self.body = body
+    }
+}
 ```
+
+#### Driver Protocol
+
+```swift
+public protocol LicenseDriverProtocol {
+    func getLicenses() -> [License]
+}
+```
+
+</details>
+
+<details><summary>Presentation layer</summary>
+
+#### View
+
+```swift
+public struct LicenseListView<DIContainer: DIContainerDependency>: View {
+    private let diContainer: DIContainer
+    @State private var presenter: LicenseListPresenter<DIContainer>
+
+    public init(diContainer: DIContainer) {
+        self.diContainer = diContainer
+        presenter = LicenseListPresenter(diContainer: diContainer)
+    }
+    
+    public var body: some View {
+        List {
+            ForEach(presenter.licenses) { license in
+                Button {
+                    presenter.onTapLicense(license)
+                } label: {
+                    Text(license.name)
+                }
+            }
+        }
+        .navigationTitle("Licenses")
+        .sheet(item: $presenter.selectedLicense, content: { license in
+            NavigationStack {
+                ScrollView {
+                    Text(license.body).padding()
+                }
+                .navigationTitle(license.name)
+            }
+        })
+        .onAppear {
+            presenter.onAppear()
+        }
+    }
+}
+```
+
+#### Presenter Dependency
+
+```swift
+public protocol LicenseListPresenterDependency {
+    associatedtype LicenseDriverProtocolAssocType: LicenseDriverProtocol
+
+    var licenseDriver: LicenseDriverProtocolAssocType { get }
+}
+```
+
+#### Presenter
+
+```swift
+@Observable
+final class LicenseListPresenter<DIContainer: LicenseListPresenterDependency> {
+    private(set) var licenses: [License] = []
+    var selectedLicense: License?
+    
+    private let diContainer: DIContainer
+    
+    init(diContainer: DIContainer) {
+        self.diContainer = diContainer
+    }
+
+    func onAppear() {
+        licenses = diContainer.licenseDriver.getLicenses()
+    }
+
+    func onTapLicense(_ license: License) {
+        selectedLicense = license
+    }
+}
+```
+
+#### DI Container Dependency
+
+```swift
+public protocol DIContainerDependency: LicenseListPresenterDependency {}
+```
+
+#### Mock DI Container
+
+```swift
+public final class MockDIContainer<LicenseDriver: LicenseDriverProtocol>: DIContainerDependency {
+    public let licenseDriver: LicenseDriver
+    
+    public init(licenseDriver: LicenseDriver = MockLicenseDriver(getLicenses: [
+        License(id: UUID().uuidString, name: "Sample License 1", body: "Sample License Body 1"),
+        License(id: UUID().uuidString, name: "Sample License 2", body: "Sample License Body 2"),
+        License(id: UUID().uuidString, name: "Sample License 3", body: "Sample License Body 3"),
+    ])) {
+        self.licenseDriver = licenseDriver
+    }
+}
+
+public final class MockLicenseDriver: LicenseDriverProtocol {
+    private let _getLicenses: [License]
+    
+    public init(getLicenses: [License] = []) {
+        self._getLicenses = getLicenses
+    }
+
+    public func getLicenses() -> [License] {
+        return _getLicenses
+    }
+}
+```
+
+</details>
+
+<details><summary>Framework Layer</summary>
+
+#### Driver
+
+```swift
+public class LicenseDriver: LicenseDriverProtocol {
+    public init() {}
+    
+    public func getLicenses() -> [DomainLayer.License] {
+        LicensesPlugin.licenses.map { library in
+            License(from: library)
+        }
+    }
+}
+
+extension DomainLayer.License {
+    // Convert Framework Entity to Domain Entity 
+    init(from licensesPluginLicense: LicensesPlugin.License) {
+        self.init(id: licensesPluginLicense.id, name: licensesPluginLicense.name, body: licensesPluginLicense.licenseText ?? "")
+    }
+}
+```
+
+※ UseCase, Interactor は Presenter での複雑な処理をまとめる用途で用いられます。今回のケースでは UseCase, Interactor は採用していないため、[こちら](https://github.com/suguruTakahashi-1234/framework-independent-architecture)のより実践的なサンプルプロジェクトで確認してください。
+
+</details>
+
+<details><summary>DI Layer</summary>
+
+#### DI Container
+
+```swift
+public final class DIContainer<LicenseDriver: LicenseDriverProtocol>: DIContainerDependency {
+    public let licenseDriver: LicenseDriver
+    
+    public init(licenseDriver: LicenseDriver = FrameworkLayer.LicenseDriver()) {
+        self.licenseDriver = licenseDriver
+    }
+}
+```
+
+</details>
+
+<details><summary>Application layer (Entry Point)</summary>
+
+#### Development App
+
+```swift
+@main
+struct DevelopmentApp: App {
+    var body: some Scene {
+        WindowGroup {
+            NavigationStack {
+                // Mock DI Container
+                LicenseListView(diContainer: MockDIContainer())
+            }
+        }
+    }
+}
+```
+
+#### Production App
+
+```swift
+@main
+struct ProductionApp: App {
+    var body: some Scene {
+        WindowGroup {
+            NavigationStack {
+                // Actual DI Container
+                LicenseListView(diContainer: DIContainer())
+            }
+        }
+    }
+}
+```
+
+</details>
 
 ## テスト
 
