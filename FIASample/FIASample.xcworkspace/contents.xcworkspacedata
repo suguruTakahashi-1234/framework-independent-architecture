@@ -5,9 +5,9 @@
       location = "group:FIASamplePackage">
    </FileRef>
    <FileRef
-      location = "group:Production/Production.xcodeproj">
+      location = "group:Development/Development.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Development/Development.xcodeproj">
+      location = "group:Production/Production.xcodeproj">
    </FileRef>
 </Workspace>

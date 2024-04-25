@@ -5,19 +5,29 @@ import PackageDescription
 
 let package = Package(
     name: "FIASamplePackage",
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "FIASamplePackage",
             targets: ["FIASamplePackage"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.6.0"),
+        .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.24.0"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "FIASamplePackage"),
+            name: "FIASamplePackage",
+            dependencies: [
+                .product(name: "LicenseList", package: "LicenseList"),
+            ]
+        ),
         .testTarget(
             name: "FIASamplePackageTests",
-            dependencies: ["FIASamplePackage"]),
+            dependencies: ["FIASamplePackage"])
+        ,
     ]
 )

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import FIASamplePackage
 
 @main
 struct ProductionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(buildScheme: .production)
         }
     }
 }

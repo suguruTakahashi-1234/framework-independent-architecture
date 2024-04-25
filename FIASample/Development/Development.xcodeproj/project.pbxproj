@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		441DA2552BDA372B0076A7B8 /* FIASamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 441DA2542BDA372B0076A7B8 /* FIASamplePackage */; };
 		44E510092BDA3643003AC5F8 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E510082BDA3643003AC5F8 /* DevelopmentApp.swift */; };
-		44E5100B2BDA3643003AC5F8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5100A2BDA3643003AC5F8 /* ContentView.swift */; };
 		44E5100D2BDA3643003AC5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E5100C2BDA3643003AC5F8 /* Assets.xcassets */; };
 		44E510112BDA3643003AC5F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E510102BDA3643003AC5F8 /* Preview Assets.xcassets */; };
 		44E5101B2BDA3643003AC5F8 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5101A2BDA3643003AC5F8 /* DevelopmentTests.swift */; };
 		44E510252BDA3643003AC5F8 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E510242BDA3643003AC5F8 /* DevelopmentUITests.swift */; };
-		44E510272BDA3643003AC5F8 /* DevelopmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E510262BDA3643003AC5F8 /* DevelopmentUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		44E510052BDA3643003AC5F8 /* Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Development.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E510082BDA3643003AC5F8 /* DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentApp.swift; sourceTree = "<group>"; };
-		44E5100A2BDA3643003AC5F8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44E5100C2BDA3643003AC5F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44E5100E2BDA3643003AC5F8 /* Development.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Development.entitlements; sourceTree = "<group>"; };
 		44E510102BDA3643003AC5F8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -44,7 +42,6 @@
 		44E5101A2BDA3643003AC5F8 /* DevelopmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentTests.swift; sourceTree = "<group>"; };
 		44E510202BDA3643003AC5F8 /* DevelopmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DevelopmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E510242BDA3643003AC5F8 /* DevelopmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentUITests.swift; sourceTree = "<group>"; };
-		44E510262BDA3643003AC5F8 /* DevelopmentUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441DA2552BDA372B0076A7B8 /* FIASamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +70,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		441DA2532BDA372B0076A7B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		44E50FFC2BDA3642003AC5F8 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +84,7 @@
 				44E510192BDA3643003AC5F8 /* DevelopmentTests */,
 				44E510232BDA3643003AC5F8 /* DevelopmentUITests */,
 				44E510062BDA3643003AC5F8 /* Products */,
+				441DA2532BDA372B0076A7B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				44E510082BDA3643003AC5F8 /* DevelopmentApp.swift */,
-				44E5100A2BDA3643003AC5F8 /* ContentView.swift */,
 				44E5100C2BDA3643003AC5F8 /* Assets.xcassets */,
 				44E5100E2BDA3643003AC5F8 /* Development.entitlements */,
 				44E5100F2BDA3643003AC5F8 /* Preview Content */,
@@ -124,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				44E510242BDA3643003AC5F8 /* DevelopmentUITests.swift */,
-				44E510262BDA3643003AC5F8 /* DevelopmentUITestsLaunchTests.swift */,
 			);
 			path = DevelopmentUITests;
 			sourceTree = "<group>";
@@ -145,6 +149,9 @@
 			dependencies = (
 			);
 			name = Development;
+			packageProductDependencies = (
+				441DA2542BDA372B0076A7B8 /* FIASamplePackage */,
+			);
 			productName = Development;
 			productReference = 44E510052BDA3643003AC5F8 /* Development.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +266,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44E5100B2BDA3643003AC5F8 /* ContentView.swift in Sources */,
 				44E510092BDA3643003AC5F8 /* DevelopmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,7 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44E510272BDA3643003AC5F8 /* DevelopmentUITestsLaunchTests.swift in Sources */,
 				44E510252BDA3643003AC5F8 /* DevelopmentUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +622,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		441DA2542BDA372B0076A7B8 /* FIASamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FIASamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44E50FFD2BDA3642003AC5F8 /* Project object */;
 }
