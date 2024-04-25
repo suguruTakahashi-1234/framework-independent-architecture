@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import FIASamplePackage
+import DomainLayer
+import PresentationLayer
 
 @main
 struct DevelopmentApp: App {

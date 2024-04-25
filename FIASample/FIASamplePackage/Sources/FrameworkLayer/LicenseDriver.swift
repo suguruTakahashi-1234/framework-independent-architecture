@@ -7,6 +7,7 @@
 
 import Foundation
 import Firebase
+import DomainLayer
 
 public class LicenseDriver: LicenseDriverProtocol {
     public init() {}

@@ -6,11 +6,7 @@
 //
 
 import SwiftUI
-
-public enum BuildScheme: String {
-    case development = "Development"
-    case production = "Production"
-}
+import DomainLayer
 
 public struct ContentView: View {
     private let buildScheme: BuildScheme

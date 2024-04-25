@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
@@ -43,12 +44,6 @@ struct LicenseListView: View {
         .onAppear {
             presenter.onAppear()
         }
-    }
-}
-
-#Preview("Actual") {
-    NavigationStack {
-        LicenseListView(licenseDriver: LicenseDriver())
     }
 }
 

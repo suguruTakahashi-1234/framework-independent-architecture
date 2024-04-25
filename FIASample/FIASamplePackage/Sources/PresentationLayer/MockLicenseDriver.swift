@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DomainLayer
 
 public class MockLicenseDriver: LicenseDriverProtocol {
     private let _getLicenses: [License]

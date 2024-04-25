@@ -6,7 +6,9 @@
 //
 
 import XCTest
-@testable import FIASamplePackage
+@testable import PresentationLayer
+import DomainLayer
+import FrameworkLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!

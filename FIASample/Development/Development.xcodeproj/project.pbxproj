@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		441DA2552BDA372B0076A7B8 /* FIASamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 441DA2542BDA372B0076A7B8 /* FIASamplePackage */; };
+		443DA6052BDA5CF000107E3B /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA6042BDA5CF000107E3B /* PresentationLayer */; };
+		443DA6072BDA5CF800107E3B /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA6062BDA5CF800107E3B /* DomainLayer */; };
 		44E510092BDA3643003AC5F8 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E510082BDA3643003AC5F8 /* DevelopmentApp.swift */; };
 		44E5100D2BDA3643003AC5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E5100C2BDA3643003AC5F8 /* Assets.xcassets */; };
 		44E510112BDA3643003AC5F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E510102BDA3643003AC5F8 /* Preview Assets.xcassets */; };
@@ -49,7 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				441DA2552BDA372B0076A7B8 /* FIASamplePackage in Frameworks */,
+				443DA6072BDA5CF800107E3B /* DomainLayer in Frameworks */,
+				443DA6052BDA5CF000107E3B /* PresentationLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +152,8 @@
 			);
 			name = Development;
 			packageProductDependencies = (
-				441DA2542BDA372B0076A7B8 /* FIASamplePackage */,
+				443DA6042BDA5CF000107E3B /* PresentationLayer */,
+				443DA6062BDA5CF800107E3B /* DomainLayer */,
 			);
 			productName = Development;
 			productReference = 44E510052BDA3643003AC5F8 /* Development.app */;
@@ -624,9 +627,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		441DA2542BDA372B0076A7B8 /* FIASamplePackage */ = {
+		443DA6042BDA5CF000107E3B /* PresentationLayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FIASamplePackage;
+			productName = PresentationLayer;
+		};
+		443DA6062BDA5CF800107E3B /* DomainLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DomainLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

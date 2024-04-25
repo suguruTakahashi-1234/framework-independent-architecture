@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import FIASamplePackage
+@testable import FrameworkLayer
 
 final class LicenseDriverTest: XCTestCase {
     var licenseDriver: LicenseDriver!

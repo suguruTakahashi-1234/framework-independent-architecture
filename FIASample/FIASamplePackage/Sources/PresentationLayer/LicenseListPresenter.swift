@@ -6,6 +6,7 @@
 //
 
 import Combine
+import DomainLayer
 
 final class LicenseListPresenter: ObservableObject {
     @Published var selectedLicense: License?

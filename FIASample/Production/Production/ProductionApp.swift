@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import FIASamplePackage
+import FrameworkLayer
+import PresentationLayer
 
 @main
 struct ProductionApp: App {
