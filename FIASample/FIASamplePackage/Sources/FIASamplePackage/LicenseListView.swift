@@ -8,18 +8,26 @@
 import SwiftUI
 import LicenseList
 
-public struct LicenseListView: View {
-    @StateObject private var presenter: LicenseListPresenter = .init()
+struct LicenseListView: View {
+    @StateObject private var presenter: LicenseListPresenter
     
-    public init() {}
+    init(licenseDriver: LicenseDriverProtocol = LicenseDriver()) {
+        _presenter = .init(wrappedValue: .init(licenseDriver: licenseDriver))
+    }
     
-    public var body: some View {
-        List {
-            ForEach(presenter.licenses) { license in
-                Button {
-                    presenter.onTapLicense(license)
-                } label: {
-                    Text(license.name)
+    var body: some View {
+        VStack {
+            if presenter.licenses.isEmpty {
+                Text("No Licenses")
+            } else {
+                List {
+                    ForEach(presenter.licenses) { license in
+                        Button {
+                            presenter.onTapLicense(license)
+                        } label: {
+                            Text(license.name)
+                        }
+                    }
                 }
             }
         }
@@ -39,8 +47,28 @@ public struct LicenseListView: View {
     }
 }
 
-#Preview {
+#Preview("Actual") {
     NavigationStack {
-        LicenseListView()
+        LicenseListView(licenseDriver: LicenseDriver())
+    }
+}
+
+#Preview("Samples") {
+    let licenseDriver = MockLicenseDriver(getLicenses: [
+        .init(name: "sample license 1", url: "sample license 1", licenseBody: "sample license body 1"),
+        .init(name: "sample license 2", url: "sample license 2", licenseBody: "sample license body 2"),
+        .init(name: "sample license 3", url: "sample license 3", licenseBody: "sample license body 3"),
+    ])
+    
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
+    }
+}
+
+#Preview("Empty") {
+    let licenseDriver = MockLicenseDriver(getLicenses: [])
+    
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
     }
 }

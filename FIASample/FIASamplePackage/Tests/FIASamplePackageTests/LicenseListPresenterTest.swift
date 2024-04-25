@@ -16,7 +16,7 @@ final class LicenseListPresenterTest: XCTestCase {
     override func setUp() {
         super.setUp()
         license = LicenseList.Library.libraries.first!
-        presenter = LicenseListPresenter()
+        presenter = LicenseListPresenter(licenseDriver: LicenseDriver())
     }
     
     func testOnAppear() {
