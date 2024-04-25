@@ -13,7 +13,7 @@ import PresentationLayer
 struct ProductionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .production, licenseDriver: LicenseDriver())
+            ContentView(buildScheme: .production, licenseDriver: LicenseDriver(), logDriver: LogDriver())
         }
     }
 }
