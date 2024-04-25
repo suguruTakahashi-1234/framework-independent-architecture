@@ -18,3 +18,13 @@ public struct License: Identifiable, Hashable {
         self.body = body
     }
 }
+
+public extension [License] {
+    static var samples: [License] {
+        [
+            .init(id: "sample license 1", name: "sample license 1", body: "sample license body 1"),
+            .init(id: "sample license 2", name: "sample license 2", body: "sample license body 2"),
+            .init(id: "sample license 3", name: "sample license 3", body: "sample license body 3"),
+        ]
+    }
+}

@@ -7,14 +7,14 @@
 
 import Foundation
 
-class MockLicenseDriver: LicenseDriverProtocol {
+public class MockLicenseDriver: LicenseDriverProtocol {
     private let _getLicenses: [License]
     
-    init(getLicenses: [License]) {
+    public init(getLicenses: [License]) {
         self._getLicenses = getLicenses
     }
     
-    func getLicenses() -> [License] {
+    public func getLicenses() -> [License] {
         _getLicenses
     }
 }

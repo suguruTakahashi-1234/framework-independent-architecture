@@ -14,16 +14,18 @@ public enum BuildScheme: String {
 
 public struct ContentView: View {
     private let buildScheme: BuildScheme
+    private let licenseDriver: LicenseDriverProtocol
     
-    public init(buildScheme: BuildScheme) {
+    public init(buildScheme: BuildScheme, licenseDriver: LicenseDriverProtocol) {
         self.buildScheme = buildScheme
+        self.licenseDriver = licenseDriver
     }
 
     public var body: some View {
         NavigationStack {
             List {
                 NavigationLink {
-                    LicenseListView()
+                    LicenseListView(licenseDriver: licenseDriver)
                 } label: {
                     Text("Licenses")
                 }
@@ -34,9 +36,9 @@ public struct ContentView: View {
 }
 
 #Preview("Development") {
-    ContentView(buildScheme: .development)
+    ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(getLicenses: []))
 }
 
 #Preview("Production") {
-    ContentView(buildScheme: .production)
+    ContentView(buildScheme: .production, licenseDriver: MockLicenseDriver(getLicenses: []))
 }

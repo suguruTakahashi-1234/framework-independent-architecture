@@ -12,7 +12,7 @@ import FIASamplePackage
 struct DevelopmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .development)
+            ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(getLicenses: .samples))
         }
     }
 }

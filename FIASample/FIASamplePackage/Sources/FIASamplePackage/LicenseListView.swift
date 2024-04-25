@@ -10,7 +10,7 @@ import SwiftUI
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
     
-    init(licenseDriver: LicenseDriverProtocol = LicenseDriver()) {
+    init(licenseDriver: LicenseDriverProtocol) {
         _presenter = .init(wrappedValue: .init(licenseDriver: licenseDriver))
     }
     

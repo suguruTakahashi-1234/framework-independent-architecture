@@ -21,7 +21,9 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "FIASamplePackage",
-            dependencies: [],
+            dependencies: [
+                .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
+            ],
             plugins: [
                 .plugin(name: "LicensesPlugin", package: "LicensesPlugin"),
             ]
