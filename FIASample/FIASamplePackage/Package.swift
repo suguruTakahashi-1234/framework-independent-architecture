@@ -49,6 +49,7 @@ let package = Package(
                 "DomainLayer",
                 "FrameworkLayer",
                 "PresentationLayer",
+                "DependencyInjectionLayer",
             ]
         ),
     ]

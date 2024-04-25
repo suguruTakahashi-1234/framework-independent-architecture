@@ -13,7 +13,7 @@ public class MockDIContainer: DIContainerDependency {
     public let licenseDriver: LicenseDriverProtocol
     public let logDriver: LogDriverProtocol
     
-    public init(buildScheme: BuildScheme = .development, licenseDriver: LicenseDriverProtocol = MockLicenseDriver(getLicenses: []), logDriver: LogDriverProtocol = MockLogDriver()) {
+    public init(buildScheme: BuildScheme = .development, licenseDriver: LicenseDriverProtocol = MockLicenseDriver(getLicenses: .samples), logDriver: LogDriverProtocol = MockLogDriver()) {
         self.buildScheme = buildScheme
         self.licenseDriver = licenseDriver
         self.logDriver = logDriver

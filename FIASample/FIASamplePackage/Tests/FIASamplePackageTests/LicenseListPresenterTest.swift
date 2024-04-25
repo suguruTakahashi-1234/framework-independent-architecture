@@ -9,6 +9,7 @@ import XCTest
 @testable import PresentationLayer
 import DomainLayer
 import FrameworkLayer
+import DependencyInjectionLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!
@@ -17,7 +18,7 @@ final class LicenseListPresenterTest: XCTestCase {
     override func setUp() {
         super.setUp()
         license = LicenseDriver().getLicenses().first!
-        presenter = LicenseListPresenter(licenseDriver: LicenseDriver(), logDriver: LogDriver())
+        presenter = LicenseListPresenter(dependency: DIContainer())
     }
     
     func testOnAppear() {
