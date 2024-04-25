@@ -9,6 +9,9 @@ import Foundation
 import DomainLayer
 
 public protocol LicenseListPresenterDependency {
-    var licenseDriver: any LicenseDriverProtocol { get }
-    var logDriver: any LogDriverProtocol { get }
+    associatedtype LicenseDriverProtocolAssocType: LicenseDriverProtocol
+    associatedtype LogDriverProtocolAssocType: LogDriverProtocol
+
+    var licenseDriver: LicenseDriverProtocolAssocType { get }
+    var logDriver: LogDriverProtocolAssocType { get }
 }

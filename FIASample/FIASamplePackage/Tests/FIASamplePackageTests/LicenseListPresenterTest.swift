@@ -13,12 +13,14 @@ import DependencyInjectionLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!
-    var presenter: LicenseListPresenter!
+    var dependency: DIContainer!
+    var presenter: LicenseListPresenter<DIContainer>!
     
     override func setUp() {
         super.setUp()
         license = LicenseDriver().getLicenses().first!
-        presenter = LicenseListPresenter(dependency: DIContainer())
+        dependency = DIContainer()
+        presenter = LicenseListPresenter(dependency: dependency)
     }
     
     func testOnAppear() {

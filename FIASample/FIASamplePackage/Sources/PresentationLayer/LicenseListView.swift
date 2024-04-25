@@ -8,10 +8,10 @@
 import SwiftUI
 import DomainLayer
 
-struct LicenseListView: View {
-    @StateObject private var presenter: LicenseListPresenter
-    
-    init(dependency: any DIContainerDependency) {
+struct LicenseListView<Dependency: DIContainerDependency>: View {
+    @StateObject private var presenter: LicenseListPresenter<Dependency>
+
+    init(dependency: Dependency) {
         _presenter = .init(wrappedValue: .init(dependency: dependency))
     }
     
