@@ -9,22 +9,22 @@ import SwiftUI
 import LicenseList
 
 public struct LicenseListView: View {
-    @State private var selectedLicense: LicenseList.Library?
+    @StateObject private var presenter: LicenseListPresenter = .init()
     
     public init() {}
     
     public var body: some View {
         List {
-            ForEach(LicenseList.Library.libraries) { license in
-                Button{
-                    selectedLicense = license
+            ForEach(presenter.licenses) { license in
+                Button {
+                    presenter.onTapLicense(license)
                 } label: {
                     Text(license.name)
                 }
             }
         }
         .navigationTitle("Licenses")
-        .sheet(item: $selectedLicense) { license in
+        .sheet(item: $presenter.selectedLicense) { license in
             NavigationStack {
                 ScrollView {
                     Text(license.licenseBody)
@@ -32,6 +32,9 @@ public struct LicenseListView: View {
                 }
                 .navigationTitle(license.name)
             }
+        }
+        .onAppear {
+            presenter.onAppear()
         }
     }
 }
