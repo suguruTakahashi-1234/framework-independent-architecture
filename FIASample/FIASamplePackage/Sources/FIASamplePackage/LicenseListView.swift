@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import LicenseList
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
