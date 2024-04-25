@@ -5,7 +5,7 @@
 ## Overview
 
 Framework-Independent Architecture (FIA) とは、Swift でのアプリ開発のための新たに提案されるアーキテクチャです。
-このアーキテクチャは Swift Package Manager を用いたマルチモジュール、マルチプロジェクト構成を取り入れ、Clean Architecture の設計原則に基づいています。
+このアーキテクチャは Swift Package Manager を用いたマルチモジュール、マルチプロジェクト構成を取り入れ、[Clean Architecture](https://blog.cleancoder.com/uncle-bob/2011/11/22/Clean-Architecture.html) の設計原則に基づいています。
 
 FIA の主な目的は、Clean Architecture が提供する独立性やテスタビリティといったメリットを享受すると同時に、Xcode のビルド時間の短縮を実現することにあります。
 

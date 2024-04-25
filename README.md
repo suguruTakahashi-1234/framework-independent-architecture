@@ -4,16 +4,16 @@ English | [日本語](./README.ja.md)
 
 ## Overview
 
-The Framework-Independent Architecture (FIA) is a newly proposed architecture for Swift app development.
-This architecture adopts a multi-module, multi-project structure using the Swift Package Manager and is based on the design principles of the Clean Architecture.
+The Framework-Independent Architecture (FIA) is a newly proposed architecture for Swift application development.
+This architecture adopts a multi-module, multi-project structure using the Swift Package Manager and is based on the design principles of the [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2011/11/22/Clean-Architecture.html).
 
 The main goal of FIA is to reduce Xcode build time while enjoying the benefits of independence and testability that the Clean Architecture provides.
 
-This architecture uses dependency injection at the application entry point to provide a clean area not only at the presentation layer, but also at the application layer.
+This architecture uses dependency injection at the application entry point to provide a Clean Area not only at the Presentation Layer, but also at the Application Layer.
 
-This design enables fast application builds independent of the framework layer, aiming to reduce build time significantly.
+This design enables fast application builds independent of the Framework Layer, aiming to reduce build time significantly.
 
-The diagram below shows the overall architecture of the FIA and the direction of dependencies. It visually represents a clean area extended to the application layer for development.
+The diagram below shows the overall architecture of the FIA and the direction of dependencies. It visually represents a Clean Area extended to the Application Layer for development.
 
 <div align="center">
 <img src="./assets/drawio/architecture_outline.drawio.svg"/>
@@ -25,7 +25,7 @@ The circular architecture in the figure below also illustrates the inward-lookin
 <img src="./assets/drawio/architecture_circle.drawio.svg"/>
 </div>
 
-The "Framework" in the Framework-Independent Architecture (FIA) refers to the "Framework Layer" in the figure and corresponds to the outermost layer of the Clean Architecture. This layer is also called the Data Access Layer or Infrastructure Layer and depends on details such as external frameworks, databases, network communications, etc. In FIA, this layer is positioned as a non-clean area. FIA positions this layer as a non-clean area and adopts a structure where the development application layer is kept clean, while only the production application layer depends on the non-clean area. This approach aims to reduce application build time during development.
+The "Framework" in the Framework-Independent Architecture (FIA) refers to the "Framework Layer" in the figure and corresponds to the outermost layer of the Clean Architecture. This layer is also called the Data Access Layer or Infrastructure Layer and depends on details such as external frameworks, databases, network communications, etc. In FIA, this layer is positioned as a Non-Clean Area. FIA positions this layer as a Non-Clean Area and adopts a structure where the development Application Layer is kept clean, while only the production Application Layer depends on the Non-Clean Area. This approach aims to reduce application build time during development.
 
 ## Swift Package Manager enables FIA
 
@@ -36,8 +36,8 @@ While module partitioning in the Swift Package Manager is usually done on a feat
 Also, through the description of dependencies in Package.swift, Swift Package Manager can easily manage the dependency direction between modules.
 In this respect, Swift Package Manager is a good match for the Clean Architecture, which emphasizes the directionality of dependencies, making Swift Package Manager suitable for implementing the Clean Architecture.
 
-In addition, FIA allows the selection of the appropriate DI container by injecting dependencies at the entry point of the application.
-This allows you to take advantage of multi-project configurations to set up a development project using a mock DI container that is independent of the framework layer, and a production project using the actual DI container that depends on the framework layer.
+In addition, FIA allows the selection of the appropriate DI Container by injecting dependencies at the entry point of the application.
+This allows you to take advantage of multi-project configurations to set up a development project using a Mock DI Container that is independent of the Framework Layer, and a production project using the actual DI Container that depends on the Framework Layer.
 
 Development projects can significantly reduce application build times by not relying on external libraries with long build times, such as the Firebase SDK as an example.
 This effect also contributes to the build speed of Xcode Previews.
@@ -117,7 +117,7 @@ graph TD;
 
 </details>
 
-<details><summary>Domain layer</summary>
+<details><summary>Domain Layer</summary>
 
 #### Entity
 
@@ -145,7 +145,7 @@ public protocol LicenseDriverProtocol {
 
 </details>
 
-<details><summary>Presentation layer</summary>
+<details><summary>Presentation Layer</summary>
 
 #### View
 
@@ -298,7 +298,7 @@ public final class DIContainer<LicenseDriver: LicenseDriverProtocol>: DIContaine
 
 </details>
 
-<details><summary>Application layer (Entry Point)</summary>
+<details><summary>Application Layer (Entry Point)</summary>
 
 #### Development App
 
@@ -372,8 +372,8 @@ Technical challenges that may be encountered in the process of implementing FIA 
   - When using `protocol`, the use of `some` instead of `any` requires type resolution, which increases the complexity of the code.
 - **Increase boiler code**:
   - A lot of boilerplate code is needed to implement the architecture, even for a single simple View.
-- **Prepare DI container for mocks**:
-  - Mock DI containers must be modified each time a dependency changes. This is a frequent and time-consuming task.
+- **Prepare Mock DI Container**:
+  - Mock DI Container must be modified each time a dependency changes. This is a frequent and time-consuming task.
 - **View testing constraints**:
   - View testing can be done by running tests in XCUITest or visually in Xcode Previews.
     - XCUITest has a long execution time and is less maintainable when multiple test cases are created or modified.
