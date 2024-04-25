@@ -253,6 +253,8 @@ public final class MockLicenseDriver: LicenseDriverProtocol {
 }
 ```
 
+※ UseCase, Interactor is used to organize complex processing in Presenter. Since UseCase, Interactor is not used in this case, please refer to the more practical sample project [here](https://github.com/suguruTakahashi-1234/framework-independent-architecture).
+
 </details>
 
 <details><summary>Framework Layer</summary>
@@ -277,8 +279,6 @@ extension DomainLayer.License {
     }
 }
 ```
-
-※ UseCase, Interactor is used to organize complex processing in Presenter. Since UseCase, Interactor is not used in this case, please refer to the more practical sample project [here](https://github.com/suguruTakahashi-1234/framework-independent-architecture).
 
 </details>
 
@@ -387,13 +387,15 @@ See the [LICENSE](./LICENSE) file for license rights and limitations (MIT).
 
 ## Additional Resources
 
+#### Speaker Deck
+
 Japanese Speaker Deck slides that supplement the FIA are presented below. If you are interested, please refer to them.
 
-<div align="center">
-  <a href="https://speakerdeck.com/sugurutakahashi/framework-independent-architecture-fia-clean-architecture-de-ios-apuriwobao-su-debirudosuru">
-    <img src="./assets/images/speakerdeck_thumbnail.png" width="320" alt="Speaker Deck Slide">
-  </a>
-</div>
+- [Framework-Independent Architecture (FIA) - Speaker Deck](https://speakerdeck.com/sugurutakahashi/framework-independent-architecture-fia-clean-architecture-de-ios-apuriwobao-su-debirudosuru)
+
+#### YouTube
+
+TODO: 
 
 ## Contact
 

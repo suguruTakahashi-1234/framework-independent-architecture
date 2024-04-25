@@ -43,6 +43,7 @@ Swift Package Manager におけるモジュールの分割は通常、機能に�
 この効果は、Xcode Previews のビルド速度の向上にも寄与します。
 
 ## Example Projects
+
 以下のリンク先のリポジトリには、実際のプロジェクトにFIAのコンセプトを適用したサンプルコードが含まれています。これらの例は、FIA の設計原則をよりよく理解し、自身のプロジェクトに適用するのに役立ちます。
 
 - [framework-independent-architecture/FIASmaple](https://github.com/suguruTakahashi-1234/framework-independent-architecture/tree/main/FIASmaple) (this repository)
@@ -252,6 +253,8 @@ public final class MockLicenseDriver: LicenseDriverProtocol {
 }
 ```
 
+※ UseCase, Interactor は Presenter での複雑な処理をまとめる用途で用いられます。今回のケースでは UseCase, Interactor は採用していないため、[こちら](https://github.com/suguruTakahashi-1234/framework-independent-architecture)のより実践的なサンプルプロジェクトで確認してください。
+
 </details>
 
 <details><summary>Framework Layer</summary>
@@ -276,8 +279,6 @@ extension DomainLayer.License {
     }
 }
 ```
-
-※ UseCase, Interactor は Presenter での複雑な処理をまとめる用途で用いられます。今回のケースでは UseCase, Interactor は採用していないため、[こちら](https://github.com/suguruTakahashi-1234/framework-independent-architecture)のより実践的なサンプルプロジェクトで確認してください。
 
 </details>
 
@@ -386,13 +387,15 @@ FIA を実装する過程で遭遇する可能性のある技術的課題を以�
 
 ## Additional Resources
 
+#### Speaker Deck
+
 FIA について補足する日本語の Speaker Deck スライドを以下で紹介しています。興味があれば、ぜひ参考にしてください。
 
-<div align="center">
-  <a href="https://speakerdeck.com/sugurutakahashi/framework-independent-architecture-fia-clean-architecture-de-ios-apuriwobao-su-debirudosuru">
-    <img src="./assets/images/speakerdeck_thumbnail.png" width="320" alt="Speaker Deck Slide">
-  </a>
-</div>
+- [Framework-Independent Architecture (FIA) - Speaker Deck](https://speakerdeck.com/sugurutakahashi/framework-independent-architecture-fia-clean-architecture-de-ios-apuriwobao-su-debirudosuru)
+
+#### YouTube
+
+TODO: 
 
 ## Contact
 
