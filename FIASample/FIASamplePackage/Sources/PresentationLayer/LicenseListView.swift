@@ -11,7 +11,7 @@ import DomainLayer
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
     
-    init(dependency: DIContainerDependency) {
+    init(dependency: any DIContainerDependency) {
         _presenter = .init(wrappedValue: .init(dependency: dependency))
     }
     
@@ -32,7 +32,7 @@ struct LicenseListView: View {
             }
         }
         .navigationTitle("Licenses")
-        .sheet(item: $presenter.selectedLicense) { license in
+        .sheet(item: $presenter.selectedLicense, content: { license in
             NavigationStack {
                 ScrollView {
                     Text(license.body)
@@ -40,7 +40,7 @@ struct LicenseListView: View {
                 }
                 .navigationTitle(license.name)
             }
-        }
+        })
         .onAppear {
             presenter.onAppear()
         }

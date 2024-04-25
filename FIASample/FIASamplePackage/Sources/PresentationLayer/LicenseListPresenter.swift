@@ -12,9 +12,9 @@ final class LicenseListPresenter: ObservableObject {
     @Published var selectedLicense: License?
     @Published private(set) var licenses: [License] = []
     
-    private let dependency: LicenseListPresenterDependency
+    private let dependency: any LicenseListPresenterDependency
     
-    init(dependency: LicenseListPresenterDependency) {
+    init(dependency: any LicenseListPresenterDependency) {
         self.dependency = dependency
     }
     

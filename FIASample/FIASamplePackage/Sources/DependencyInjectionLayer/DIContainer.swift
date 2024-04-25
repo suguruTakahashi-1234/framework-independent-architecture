@@ -12,10 +12,10 @@ import FrameworkLayer
 
 public class DIContainer: DIContainerDependency {
     public let buildScheme: BuildScheme
-    public let licenseDriver: LicenseDriverProtocol
-    public let logDriver: LogDriverProtocol
+    public let licenseDriver: any LicenseDriverProtocol
+    public let logDriver: any LogDriverProtocol
     
-    public init(buildScheme: BuildScheme = .production, licenseDriver: LicenseDriverProtocol = FrameworkLayer.LicenseDriver(), logDriver: LogDriverProtocol = FrameworkLayer.LogDriver()) {
+    public init(buildScheme: BuildScheme = .production, licenseDriver: any LicenseDriverProtocol = FrameworkLayer.LicenseDriver(), logDriver: any LogDriverProtocol = FrameworkLayer.LogDriver()) {
         self.buildScheme = buildScheme
         self.licenseDriver = licenseDriver
         self.logDriver = logDriver
