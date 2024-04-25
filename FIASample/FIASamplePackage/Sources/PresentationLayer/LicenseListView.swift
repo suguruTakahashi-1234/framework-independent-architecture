@@ -9,10 +9,10 @@ import SwiftUI
 import DomainLayer
 
 struct LicenseListView<Dependency: DIContainerDependency>: View {
-    @StateObject private var presenter: LicenseListPresenter<Dependency>
+    @State private var presenter: LicenseListPresenter<Dependency>
 
     init(dependency: Dependency) {
-        _presenter = .init(wrappedValue: .init(dependency: dependency))
+        presenter = LicenseListPresenter(dependency: dependency)
     }
     
     var body: some View {
@@ -48,11 +48,7 @@ struct LicenseListView<Dependency: DIContainerDependency>: View {
 }
 
 #Preview("Samples") {
-    let licenseDriver = MockLicenseDriver(getLicenses: [
-        .init(id: "sample license 1", name: "sample license 1", body: "sample license body 1"),
-        .init(id: "sample license 2", name: "sample license 2", body: "sample license body 2"),
-        .init(id: "sample license 3", name: "sample license 3", body: "sample license body 3"),
-    ])
+    let licenseDriver = MockLicenseDriver(getLicenses: .samples)
     
     return NavigationStack {
         LicenseListView(dependency: MockDIContainer(licenseDriver: licenseDriver))
