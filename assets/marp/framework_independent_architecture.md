@@ -9,7 +9,7 @@ class: invert
 ## Framework-Independent Architecture (FIA)
 #### - Clean Architecture で iOS アプリを爆速でビルドする -
 
-<br><br>2024/04/23
+<br><br>2024/04/26
 
 ---
 
@@ -32,7 +32,7 @@ class: invert
 ## 話すこと
 
 - **Clean Architecture を使って iOS アプリを爆速でビルドする方法**
-  - = Framework-Independent Architecture (FIA) の紹介
+  - = [Framework-Independent Architecture (FIA)](https://github.com/suguruTakahashi-1234/framework-independent-architecture) の紹介
 - **MV → MVP (MVVM) → Clean Architecture → FIA への<br>リアーキテクチャの実演**
 
 ---
@@ -145,6 +145,20 @@ class: invert
 
 ---
 
+## リアーキテクチャのステップ
+
+1. MV
+2. MVP (MVVM) (Not Repository Pattern)
+3. MVP (MVVM) + Repository Pattern
+4. Clean Architecture
+5. [Framework-Independent Architecture (FIA)](https://github.com/suguruTakahashi-1234/framework-independent-architecture)
+   1. Dependency Injection in Application Layer
+   2. Development Application Layer into Clean Area
+   3. Dependency Injection with DI Container
+6. extra: Swift 6 support (any protocol → some protocol)
+
+---
+
 <!-- _class : lead invert-->
 
 # それぞれのアーキテクチャの特徴
@@ -236,14 +250,14 @@ class: invert
 
 ## FIA の実装課題とその解決策
 
-- protocol の any → some とする場合、型解決が複雑になる
+- protocol を any → some とする場合、型解決が複雑になる
 - アーキテクチャ実現のための、多くのボイラーコードが必要
 - モック用の DI Container の準備が手間になる
 - View のテスト制約
   - XCUITest: 長い実行時間、低いメンテナンス性
   - Previews: 目視確認が必要、エラーが自動的には検出されない
 
-### → Sourcery、Mockolo、PreviewSnapshots の導入
+### → [Sourcery](https://github.com/krzysztofzablocki/Sourcery)、[Mockolo](https://github.com/uber/mockolo)、[PreviewSnapshots](https://github.com/doordash-oss/swiftui-preview-snapshots) の導入
 
 ---
 
@@ -264,14 +278,14 @@ https://github.com/suguruTakahashi-1234/fia-practical-sample
 
 ## まとめ
 
-- Framework-Independent Architecture (FIA)
+- [Framework-Independent Architecture (FIA)](https://github.com/suguruTakahashi-1234/framework-independent-architecture)
   - Clean Architecture をベースにしたアーキテクチャ
   - Framework 層に非依存である
 - FIA 採用の目的
   - ビルド時間の短縮
   - Clean Architecture のメリットの享受
 - FIA での実装
-  - MVP (MVVM) からリアーキテクチャ可能である
+  - MVP (MVVM) からリアーキテクチャが可能である
   - [Sourcery](https://github.com/krzysztofzablocki/Sourcery) や [Mockolo](https://github.com/uber/mockolo) などの自動生成ツールが有効である
 
 ---
