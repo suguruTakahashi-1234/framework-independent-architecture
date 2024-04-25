@@ -13,7 +13,7 @@ import PresentationLayer
 struct DevelopmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(getLicenses: .samples), logDriver: MockLogDriver())
+            ContentView(dependency: MockDIContainer())
         }
     }
 }

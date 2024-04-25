@@ -11,8 +11,8 @@ import DomainLayer
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
     
-    init(licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
-        _presenter = .init(wrappedValue: .init(licenseDriver: licenseDriver, logDriver: logDriver))
+    init(dependency: DIContainerDependency) {
+        _presenter = .init(wrappedValue: .init(licenseDriver: dependency.licenseDriver, logDriver: dependency.logDriver))
     }
     
     var body: some View {
@@ -55,7 +55,7 @@ struct LicenseListView: View {
     ])
     
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
+        LicenseListView(dependency: MockDIContainer(licenseDriver: licenseDriver))
     }
 }
 
@@ -63,6 +63,6 @@ struct LicenseListView: View {
     let licenseDriver = MockLicenseDriver(getLicenses: [])
     
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
+        LicenseListView(dependency: MockDIContainer(licenseDriver: licenseDriver))
     }
 }

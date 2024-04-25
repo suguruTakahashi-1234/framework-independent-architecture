@@ -8,12 +8,13 @@
 import SwiftUI
 import FrameworkLayer
 import PresentationLayer
+import DependencyInjectionLayer
 
 @main
 struct ProductionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .production, licenseDriver: LicenseDriver(), logDriver: LogDriver())
+            ContentView(dependency: DIContainer())
         }
     }
 }

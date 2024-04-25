@@ -10,6 +10,7 @@
 		443DA6092BDA5D9500107E3B /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA6082BDA5D9500107E3B /* DomainLayer */; };
 		443DA60B2BDA5D9900107E3B /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA60A2BDA5D9900107E3B /* PresentationLayer */; };
 		443DA60D2BDA5DA200107E3B /* FrameworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA60C2BDA5DA200107E3B /* FrameworkLayer */; };
+		443DA60F2BDA62B400107E3B /* DependencyInjectionLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 443DA60E2BDA62B400107E3B /* DependencyInjectionLayer */; };
 		44E510402BDA3660003AC5F8 /* ProductionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E5103F2BDA3660003AC5F8 /* ProductionApp.swift */; };
 		44E510442BDA3661003AC5F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E510432BDA3661003AC5F8 /* Assets.xcassets */; };
 		44E510482BDA3661003AC5F8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44E510472BDA3661003AC5F8 /* Preview Assets.xcassets */; };
@@ -55,6 +56,7 @@
 				443DA60B2BDA5D9900107E3B /* PresentationLayer in Frameworks */,
 				443DA6092BDA5D9500107E3B /* DomainLayer in Frameworks */,
 				443DA60D2BDA5DA200107E3B /* FrameworkLayer in Frameworks */,
+				443DA60F2BDA62B400107E3B /* DependencyInjectionLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +161,7 @@
 				443DA6082BDA5D9500107E3B /* DomainLayer */,
 				443DA60A2BDA5D9900107E3B /* PresentationLayer */,
 				443DA60C2BDA5DA200107E3B /* FrameworkLayer */,
+				443DA60E2BDA62B400107E3B /* DependencyInjectionLayer */,
 			);
 			productName = Production;
 			productReference = 44E5103C2BDA3660003AC5F8 /* Production.app */;
@@ -645,6 +648,10 @@
 		443DA60C2BDA5DA200107E3B /* FrameworkLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FrameworkLayer;
+		};
+		443DA60E2BDA62B400107E3B /* DependencyInjectionLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = DependencyInjectionLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
