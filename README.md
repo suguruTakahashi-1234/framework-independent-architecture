@@ -5,7 +5,7 @@ English | [日本語](./README.ja.md)
 ## Overview
 
 The Framework-Independent Architecture (FIA) is a newly proposed architecture for Swift app development.
-This architecture incorporates a multi-module, multi-project structure using the Swift Package Manager and is based on the design principles of the Clean Architecture.
+This architecture adopts a multi-module, multi-project structure using the Swift Package Manager and is based on the design principles of the Clean Architecture.
 
 The main goal of FIA is to reduce Xcode build time while enjoying the benefits of independence and testability that the Clean Architecture provides.
 
@@ -25,11 +25,11 @@ The circular architecture in the figure below also illustrates the inward-lookin
 <img src="./assets/drawio/architecture_circle.drawio.svg"/>
 </div>
 
-The "Framework" in the Framework-Independent Architecture (FIA) refers to the "Framework Layer" in the figure, which corresponds to the outermost layer of the Clean Architecture. This layer is also called the Data Access Layer or Infrastructure Layer and depends on details such as external frameworks, databases, network communications, etc. In FIA, this layer is positioned as a non-clean area. FIA classifies this layer as non-clean, maintaining a clean development application layer while only the production layer depends on the non-clean area. This approach aims to reduce application build time during development.
+The "Framework" in the Framework-Independent Architecture (FIA) refers to the "Framework Layer" in the figure and corresponds to the outermost layer of the Clean Architecture. This layer is also called the Data Access Layer or Infrastructure Layer and depends on details such as external frameworks, databases, network communications, etc. In FIA, this layer is positioned as a non-clean area. FIA positions this layer as a non-clean area and adopts a structure where the development application layer is kept clean, while only the production application layer depends on the non-clean area. This approach aims to reduce application build time during development.
 
 ## Swift Package Manager enables FIA
 
-The Swift Package Manager easily facilitates multi-module and multi-project configurations, as seen in [isowords](https://github.com/pointfreeco/isowords). The Swift Package Manager is a great way to split up your modules.
+With the advent of Swift Package Manager, applications can now be easily adapted to multi-module and multi-project configurations, as seen in [isowords](https://github.com/pointfreeco/isowords).
 
 While module partitioning in the Swift Package Manager is usually done on a feature-by-feature basis, FIA uses the Clean Architecture design principles to partition modules by layer.
 
@@ -37,7 +37,7 @@ Also, through the description of dependencies in Package.swift, Swift Package Ma
 In this respect, Swift Package Manager is a good match for the Clean Architecture, which emphasizes the directionality of dependencies, making Swift Package Manager suitable for implementing the Clean Architecture.
 
 In addition, FIA allows the selection of the appropriate DI container by injecting dependencies at the entry point of the application.
-This setup allows you to leverage a multi-project configuration. You can establish a development project with a mock DI container independent of the framework layer, and a production project with an actual DI container that depends on the framework layer.
+This allows you to take advantage of multi-project configurations to set up a development project using a mock DI container that is independent of the framework layer, and a production project using the actual DI container that depends on the framework layer.
 
 Development projects can significantly reduce application build times by not relying on external libraries with long build times, such as the Firebase SDK as an example.
 This effect also contributes to the build speed of Xcode Previews.
