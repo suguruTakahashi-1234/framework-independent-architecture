@@ -9,9 +9,9 @@ import SwiftUI
 import DomainLayer
 
 public struct ContentView: View {
-    private let dependency: DIContainerDependency
+    private let dependency: any DIContainerDependency
     
-    public init(dependency: DIContainerDependency) {
+    public init(dependency: any DIContainerDependency) {
         self.dependency = dependency
     }
     
