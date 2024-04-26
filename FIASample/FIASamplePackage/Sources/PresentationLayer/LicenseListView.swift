@@ -12,7 +12,7 @@ struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
 
     public init(dependency: DIContainerDependency) {
-        _presenter = .init(wrappedValue: .init(licenseDriver: dependency.licenseDriver, logDriver: dependency.logDriver))
+        _presenter = .init(wrappedValue: .init(dependency: dependency))
     }
 
     var body: some View {

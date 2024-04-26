@@ -18,7 +18,7 @@ final class LicenseListPresenterTest: XCTestCase {
         super.setUp()
         license = .init(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
         licenseDriver = MockLicenseDriver(getLicenses: [])
-        presenter = LicenseListPresenter(licenseDriver: licenseDriver, logDriver: MockLogDriver())
+        presenter = LicenseListPresenter(dependency: MockDIContainer(licenseDriver: licenseDriver))
     }
 
     func testOnAppear() {

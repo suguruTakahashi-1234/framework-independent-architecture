@@ -12,21 +12,19 @@ final class LicenseListPresenter: ObservableObject {
     @Published private(set) var licenses: [License] = []
     @Published var seletedLicense: License?
 
-    private let licenseDriver: LicenseDriverProtocol
-    private let logDriver: LogDriverProtocol
+    private let dependency: LicenseListPresenterDependency
     
-    init(licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
-        self.licenseDriver = licenseDriver
-        self.logDriver = logDriver
+    init(dependency: LicenseListPresenterDependency) {
+        self.dependency = dependency
     }
 
     func onAppear() {
-        logDriver.log("onAppear LicenseListView")
-        licenses = licenseDriver.getLicenses()
+        dependency.logDriver.log("onAppear LicenseListView")
+        licenses = dependency.licenseDriver.getLicenses()
     }
 
     func onTapLicense(_ license: License) {
-        logDriver.log("onTapLicense \(license.name)")
+        dependency.logDriver.log("onTapLicense \(license.name)")
         seletedLicense = license
     }
 }
