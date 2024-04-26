@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		44D889F72BDB5FA900EA6D06 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D889F62BDB5FA900EA6D06 /* DevelopmentApp.swift */; };
-		44D889F92BDB5FA900EA6D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D889F82BDB5FA900EA6D06 /* ContentView.swift */; };
 		44D889FB2BDB5FA900EA6D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D889FA2BDB5FA900EA6D06 /* Assets.xcassets */; };
 		44D889FF2BDB5FA900EA6D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D889FE2BDB5FA900EA6D06 /* Preview Assets.xcassets */; };
 		44D88A092BDB5FA900EA6D06 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A082BDB5FA900EA6D06 /* DevelopmentTests.swift */; };
 		44D88A132BDB5FA900EA6D06 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A122BDB5FA900EA6D06 /* DevelopmentUITests.swift */; };
 		44D88A152BDB5FA900EA6D06 /* DevelopmentUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A142BDB5FA900EA6D06 /* DevelopmentUITestsLaunchTests.swift */; };
+		44D88A5A2BDB605F00EA6D06 /* FIASamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44D88A592BDB605F00EA6D06 /* FIASamplePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		44D889F32BDB5FA900EA6D06 /* Development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Development.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D889F62BDB5FA900EA6D06 /* DevelopmentApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentApp.swift; sourceTree = "<group>"; };
-		44D889F82BDB5FA900EA6D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44D889FA2BDB5FA900EA6D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D889FC2BDB5FA900EA6D06 /* Development.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Development.entitlements; sourceTree = "<group>"; };
 		44D889FE2BDB5FA900EA6D06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D88A5A2BDB605F00EA6D06 /* FIASamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +79,7 @@
 				44D88A072BDB5FA900EA6D06 /* DevelopmentTests */,
 				44D88A112BDB5FA900EA6D06 /* DevelopmentUITests */,
 				44D889F42BDB5FA900EA6D06 /* Products */,
+				44D88A582BDB605F00EA6D06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				44D889F62BDB5FA900EA6D06 /* DevelopmentApp.swift */,
-				44D889F82BDB5FA900EA6D06 /* ContentView.swift */,
 				44D889FA2BDB5FA900EA6D06 /* Assets.xcassets */,
 				44D889FC2BDB5FA900EA6D06 /* Development.entitlements */,
 				44D889FD2BDB5FA900EA6D06 /* Preview Content */,
@@ -129,6 +129,13 @@
 			path = DevelopmentUITests;
 			sourceTree = "<group>";
 		};
+		44D88A582BDB605F00EA6D06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +152,9 @@
 			dependencies = (
 			);
 			name = Development;
+			packageProductDependencies = (
+				44D88A592BDB605F00EA6D06 /* FIASamplePackage */,
+			);
 			productName = Development;
 			productReference = 44D889F32BDB5FA900EA6D06 /* Development.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44D889F92BDB5FA900EA6D06 /* ContentView.swift in Sources */,
 				44D889F72BDB5FA900EA6D06 /* DevelopmentApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +626,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44D88A592BDB605F00EA6D06 /* FIASamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FIASamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44D889EB2BDB5FA900EA6D06 /* Project object */;
 }

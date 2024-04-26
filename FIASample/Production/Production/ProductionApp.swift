@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FIASamplePackage
 
 @main
 struct ProductionApp: App {

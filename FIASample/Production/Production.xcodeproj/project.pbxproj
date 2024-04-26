@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		44D88A2E2BDB5FC700EA6D06 /* ProductionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A2D2BDB5FC700EA6D06 /* ProductionApp.swift */; };
-		44D88A302BDB5FC700EA6D06 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A2F2BDB5FC700EA6D06 /* ContentView.swift */; };
 		44D88A322BDB5FC800EA6D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D88A312BDB5FC800EA6D06 /* Assets.xcassets */; };
 		44D88A362BDB5FC800EA6D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D88A352BDB5FC800EA6D06 /* Preview Assets.xcassets */; };
 		44D88A402BDB5FC800EA6D06 /* ProductionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A3F2BDB5FC800EA6D06 /* ProductionTests.swift */; };
 		44D88A4A2BDB5FC800EA6D06 /* ProductionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A492BDB5FC800EA6D06 /* ProductionUITests.swift */; };
 		44D88A4C2BDB5FC800EA6D06 /* ProductionUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A4B2BDB5FC800EA6D06 /* ProductionUITestsLaunchTests.swift */; };
+		44D88A5D2BDB606600EA6D06 /* FIASamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44D88A5C2BDB606600EA6D06 /* FIASamplePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 /* Begin PBXFileReference section */
 		44D88A2A2BDB5FC700EA6D06 /* Production.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Production.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D88A2D2BDB5FC700EA6D06 /* ProductionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionApp.swift; sourceTree = "<group>"; };
-		44D88A2F2BDB5FC700EA6D06 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		44D88A312BDB5FC800EA6D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44D88A332BDB5FC800EA6D06 /* Production.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Production.entitlements; sourceTree = "<group>"; };
 		44D88A352BDB5FC800EA6D06 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44D88A5D2BDB606600EA6D06 /* FIASamplePackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +79,7 @@
 				44D88A3E2BDB5FC800EA6D06 /* ProductionTests */,
 				44D88A482BDB5FC800EA6D06 /* ProductionUITests */,
 				44D88A2B2BDB5FC700EA6D06 /* Products */,
+				44D88A5B2BDB606600EA6D06 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				44D88A2D2BDB5FC700EA6D06 /* ProductionApp.swift */,
-				44D88A2F2BDB5FC700EA6D06 /* ContentView.swift */,
 				44D88A312BDB5FC800EA6D06 /* Assets.xcassets */,
 				44D88A332BDB5FC800EA6D06 /* Production.entitlements */,
 				44D88A342BDB5FC800EA6D06 /* Preview Content */,
@@ -129,6 +129,13 @@
 			path = ProductionUITests;
 			sourceTree = "<group>";
 		};
+		44D88A5B2BDB606600EA6D06 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +152,9 @@
 			dependencies = (
 			);
 			name = Production;
+			packageProductDependencies = (
+				44D88A5C2BDB606600EA6D06 /* FIASamplePackage */,
+			);
 			productName = Production;
 			productReference = 44D88A2A2BDB5FC700EA6D06 /* Production.app */;
 			productType = "com.apple.product-type.application";
@@ -259,7 +269,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44D88A302BDB5FC700EA6D06 /* ContentView.swift in Sources */,
 				44D88A2E2BDB5FC700EA6D06 /* ProductionApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +626,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		44D88A5C2BDB606600EA6D06 /* FIASamplePackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FIASamplePackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44D88A222BDB5FC700EA6D06 /* Project object */;
 }
