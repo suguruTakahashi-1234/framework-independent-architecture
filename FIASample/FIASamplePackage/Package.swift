@@ -10,12 +10,21 @@ let package = Package(
         .library(name: "PresentationLayer", targets: ["PresentationLayer"]),
         .library(name: "DomainLayer", targets: ["DomainLayer"]),
         .library(name: "FrameworkLayer", targets: ["FrameworkLayer"]),
+        .library(name: "DependencyInjectionLayer", targets: ["DependencyInjectionLayer"]),
     ],
     dependencies: [
         .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.24.0"),
     ],
     targets: [
+        .target(
+            name: "DependencyInjectionLayer",
+            dependencies: [
+                "PresentationLayer",
+                "DomainLayer",
+                "FrameworkLayer",
+            ]
+        ),
         .target(
             name: "PresentationLayer",
             dependencies: ["DomainLayer"]
@@ -39,7 +48,8 @@ let package = Package(
             dependencies: [
                 "PresentationLayer",
                 "DomainLayer",
-                "FrameworkLayer"
+                "FrameworkLayer",
+                "DependencyInjectionLayer"
             ]
         ),
     ]
