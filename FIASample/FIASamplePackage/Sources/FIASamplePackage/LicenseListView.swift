@@ -53,14 +53,21 @@ struct LicenseListView: View {
 }
 
 #Preview("Empty") {
-    NavigationStack {
-        LicenseListView(licenseDriver: MockLicenseDriver(getLicenses: []))
+    let licenseDriver = MockLicenseDriver(getLicenses: [])
+    
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
     }
 }
 
 #Preview("Samples") {
-    NavigationStack {
-        LicenseListView(licenseDriver: MockLicenseDriver(getLicenses: [
-        ]))
+    let licenseDriver = MockLicenseDriver(getLicenses: [
+        .init(id: "sample license 1", name: "sample license 1", body: "sample license body 1"),
+        .init(id: "sample license 2", name: "sample license 2", body: "sample license body 2"),
+        .init(id: "sample license 3", name: "sample license 3", body: "sample license body 3"),
+    ])
+
+    return NavigationStack {
+        LicenseListView(licenseDriver: licenseDriver)
     }
 }

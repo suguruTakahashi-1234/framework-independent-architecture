@@ -6,18 +6,17 @@
 //
 
 import Foundation
-import LicenseList
 
 class LicenseDriver: LicenseDriverProtocol {
     func getLicenses() -> [License] {
-        LicenseList.Library.libraries.map { library in
-            License(from: library)
+        LicensesPlugin.licenses.map { license in
+            License(from: license)
         }
     }
 }
 
 extension License {
-    init(from library: LicenseList.Library) {
-        self.init(id: library.id.uuidString, name: library.name, body: library.licenseBody)
+    init(from license: LicensesPlugin.License) {
+        self.init(id: license.id, name: license.name, body: license.licenseText ?? "")
     }
 }
