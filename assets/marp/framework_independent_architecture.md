@@ -22,8 +22,8 @@ class: invert
 - 高橋 俊
   - iOS エンジニア
   - アカウント
-    - X: @ikuraikuraaaaaa
-    - GitHub: @suguruTakahashi-1234
+    - X: [@ikuraikuraaaaaa](https://twitter.com/ikuraikuraaaaaa)
+    - GitHub: [@suguruTakahashi-1234](https://github.com/suguruTakahashi-1234)
   - 技術
     - Swift, iOS, IoT
 
@@ -51,11 +51,11 @@ class: invert
 
 ## 大きくこれらの 3 パターンに分けられる
 
-- Layered Architecture 系 (MVVM, MVP, VIPER)
+- Layered Architecture 系 (MVVM, MVP, [VIPER](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/))
   - → View と ビズネスロジック の分離
-- Redux 系 (TCA, ReSwift)
+- Redux 系 ([TCA](https://github.com/pointfreeco/swift-composable-architecture), [ReSwift](https://github.com/ReSwift/ReSwift))
   - → 単方向データフロー
-- Clean Architecture 系 (VIPER)
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) 系 ([VIPER](https://cheesecakelabs.com/blog/ios-project-architecture-using-viper/))
   - → 内側方向への依存性の統一、依存性の逆転原則、関心事の分離
 
 ---
@@ -120,7 +120,9 @@ class: invert
 
 ## FIA 概略
 
-![bg contain](./assets/drawio/architecture_outline.drawio.svg)
+![bg contain 35%](./assets/drawio/architecture_outline.drawio.svg)
+
+#### <br><br><br><br><br><br><br><br><br>ポイント: 開発用の Application Layer が Clean な領域である
 
 ---
 
@@ -138,10 +140,6 @@ class: invert
 <!-- _class : lead invert-->
 
 ## リアーキテクチャを通して FIA での実装の実演
-
-#### https://www.youtube.com/ (TODO: 後ほど更新)
-
-[![](https://img.youtube.com/vi/GYkq9Rgoj8E/0.jpg)](https://www.youtube.com/watch?v=GYkq9Rgoj8E)
 
 ---
 
