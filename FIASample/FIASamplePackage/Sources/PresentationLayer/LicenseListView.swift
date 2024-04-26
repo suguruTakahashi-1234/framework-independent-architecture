@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import DomainLayer
 
 struct LicenseListView: View {
     @StateObject private var presenter: LicenseListPresenter
 
-    init(licenseDriver: LicenseDriverProtocol = LicenseDriver()) {
-        _presenter = .init(wrappedValue: .init(licenseDriver: licenseDriver))
+    init(licenseDriver: LicenseDriverProtocol, logDriver: LogDriverProtocol) {
+        _presenter = .init(wrappedValue: .init(licenseDriver: licenseDriver, logDriver: logDriver))
     }
 
     var body: some View {
@@ -46,28 +47,18 @@ struct LicenseListView: View {
     }
 }
 
-#Preview("Actual") {
-    NavigationStack {
-        LicenseListView(licenseDriver: LicenseDriver())
-    }
-}
-
 #Preview("Empty") {
     let licenseDriver = MockLicenseDriver(getLicenses: [])
     
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver)
+        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 }
 
 #Preview("Samples") {
-    let licenseDriver = MockLicenseDriver(getLicenses: [
-        .init(id: "sample license 1", name: "sample license 1", body: "sample license body 1"),
-        .init(id: "sample license 2", name: "sample license 2", body: "sample license body 2"),
-        .init(id: "sample license 3", name: "sample license 3", body: "sample license body 3"),
-    ])
+    let licenseDriver = MockLicenseDriver(getLicenses: .samples)
 
     return NavigationStack {
-        LicenseListView(licenseDriver: licenseDriver)
+        LicenseListView(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 }

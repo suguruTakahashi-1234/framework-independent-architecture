@@ -6,16 +6,17 @@
 //
 
 import Foundation
+import DomainLayer
 
-class MockLicenseDriver: LicenseDriverProtocol {
+public class MockLicenseDriver: LicenseDriverProtocol {
     private let _getLicenses: [License]
-    var getLicensesCounter: Int = 0
+    public var getLicensesCounter: Int = 0
     
-    init(getLicenses: [License]) {
+    public init(getLicenses: [License]) {
         self._getLicenses = getLicenses
     }
 
-    func getLicenses() -> [License] {
+    public func getLicenses() -> [License] {
         getLicensesCounter = getLicensesCounter + 1
         return _getLicenses
     }

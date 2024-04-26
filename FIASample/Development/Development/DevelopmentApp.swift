@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
-import FIASamplePackage
+import PresentationLayer
+import DomainLayer
 
 @main
 struct DevelopmentApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .development)
+            ContentView(buildScheme: .development, licenseDriver: MockLicenseDriver(getLicenses: .samples), logDriver: MockLogDriver())
         }
     }
 }

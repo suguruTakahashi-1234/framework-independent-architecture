@@ -6,9 +6,12 @@
 //
 
 import Foundation
+import DomainLayer
 
-class LicenseDriver: LicenseDriverProtocol {
-    func getLicenses() -> [License] {
+public class LicenseDriver: LicenseDriverProtocol {
+    public init() {}
+    
+    public func getLicenses() -> [License] {
         LicensesPlugin.licenses.map { license in
             License(from: license)
         }

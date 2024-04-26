@@ -23,6 +23,6 @@ final class DevelopmentUITests: XCTestCase {
 
         let collectionViewsQuery = app.collectionViews
         collectionViewsQuery/*@START_MENU_TOKEN@*/.staticTexts["Licenses"]/*[[".cells",".buttons[\"Licenses\"].staticTexts[\"Licenses\"]",".staticTexts[\"Licenses\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-        collectionViewsQuery/*@START_MENU_TOKEN@*/.buttons["abseil"]/*[[".cells.buttons[\"abseil\"]",".buttons[\"abseil\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        collectionViewsQuery.buttons["sample license 1"].tap()
     }
 }

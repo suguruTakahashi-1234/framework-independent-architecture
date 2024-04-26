@@ -6,13 +6,15 @@
 //
 
 import SwiftUI
-import FIASamplePackage
+import PresentationLayer
+import DomainLayer
+import FrameworkLayer
 
 @main
 struct ProductionApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(buildScheme: .production)
+            ContentView(buildScheme: .production, licenseDriver: LicenseDriver(), logDriver: LogDriver())
         }
     }
 }

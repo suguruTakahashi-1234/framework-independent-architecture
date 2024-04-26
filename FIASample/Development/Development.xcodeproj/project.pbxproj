@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4457FDFE2BDB7B2500001C0B /* DomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 4457FDFD2BDB7B2500001C0B /* DomainLayer */; };
+		4457FE002BDB7B2800001C0B /* PresentationLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 4457FDFF2BDB7B2800001C0B /* PresentationLayer */; };
 		44D889F72BDB5FA900EA6D06 /* DevelopmentApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D889F62BDB5FA900EA6D06 /* DevelopmentApp.swift */; };
 		44D889FB2BDB5FA900EA6D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D889FA2BDB5FA900EA6D06 /* Assets.xcassets */; };
 		44D889FF2BDB5FA900EA6D06 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44D889FE2BDB5FA900EA6D06 /* Preview Assets.xcassets */; };
 		44D88A092BDB5FA900EA6D06 /* DevelopmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A082BDB5FA900EA6D06 /* DevelopmentTests.swift */; };
 		44D88A132BDB5FA900EA6D06 /* DevelopmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D88A122BDB5FA900EA6D06 /* DevelopmentUITests.swift */; };
-		44D88A5A2BDB605F00EA6D06 /* FIASamplePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 44D88A592BDB605F00EA6D06 /* FIASamplePackage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44D88A5A2BDB605F00EA6D06 /* FIASamplePackage in Frameworks */,
+				4457FE002BDB7B2800001C0B /* PresentationLayer in Frameworks */,
+				4457FDFE2BDB7B2500001C0B /* DomainLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +152,8 @@
 			);
 			name = Development;
 			packageProductDependencies = (
-				44D88A592BDB605F00EA6D06 /* FIASamplePackage */,
+				4457FDFD2BDB7B2500001C0B /* DomainLayer */,
+				4457FDFF2BDB7B2800001C0B /* PresentationLayer */,
 			);
 			productName = Development;
 			productReference = 44D889F32BDB5FA900EA6D06 /* Development.app */;
@@ -624,9 +627,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		44D88A592BDB605F00EA6D06 /* FIASamplePackage */ = {
+		4457FDFD2BDB7B2500001C0B /* DomainLayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = FIASamplePackage;
+			productName = DomainLayer;
+		};
+		4457FDFF2BDB7B2800001C0B /* PresentationLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PresentationLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

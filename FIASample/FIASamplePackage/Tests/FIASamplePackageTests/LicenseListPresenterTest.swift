@@ -6,7 +6,8 @@
 //
 
 import XCTest
-@testable import FIASamplePackage
+@testable import PresentationLayer
+import DomainLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!
@@ -17,7 +18,7 @@ final class LicenseListPresenterTest: XCTestCase {
         super.setUp()
         license = .init(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
         licenseDriver = MockLicenseDriver(getLicenses: [])
-        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
+        presenter = LicenseListPresenter(licenseDriver: licenseDriver, logDriver: MockLogDriver())
     }
 
     func testOnAppear() {
