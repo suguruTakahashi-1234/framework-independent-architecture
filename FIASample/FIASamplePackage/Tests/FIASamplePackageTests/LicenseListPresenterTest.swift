@@ -28,8 +28,8 @@ final class LicenseListPresenterTest: XCTestCase {
     }
 
     func testTapLicense() {
-        XCTAssertEqual(presenter.seletedLicense, nil)
+        XCTAssertEqual(presenter.selectedLicense, nil)
         presenter.onTapLicense(license)
-        XCTAssertEqual(presenter.seletedLicense, license)
+        XCTAssertEqual(presenter.selectedLicense, license)
     }
 }

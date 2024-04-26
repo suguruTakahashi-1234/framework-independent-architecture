@@ -32,7 +32,7 @@ struct LicenseListView<Dependency: DIContainerDependency>: View {
             }
         }
         .navigationTitle("Licenses")
-        .sheet(item: $presenter.seletedLicense, content: { license in
+        .sheet(item: $presenter.selectedLicense, content: { license in
             NavigationStack {
                 ScrollView {
                     Text(license.body)

@@ -11,7 +11,7 @@ import Observation
 @Observable
 final class LicenseListPresenter<Dependency: LicenseListPresenterDependency> {
     private(set) var licenses: [License] = []
-    var seletedLicense: License?
+    var selectedLicense: License?
 
     private let dependency: Dependency
     
@@ -26,6 +26,6 @@ final class LicenseListPresenter<Dependency: LicenseListPresenterDependency> {
 
     func onTapLicense(_ license: License) {
         dependency.logDriver.log("onTapLicense \(license.name)")
-        seletedLicense = license
+        selectedLicense = license
     }
 }
