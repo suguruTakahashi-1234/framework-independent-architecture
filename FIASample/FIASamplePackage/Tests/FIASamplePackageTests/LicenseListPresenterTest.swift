@@ -7,16 +7,15 @@
 
 import XCTest
 @testable import FIASamplePackage
-import LicenseList
 
 final class LicenseListPresenterTest: XCTestCase {
-    var license: LicenseList.Library!
+    var license: License!
     var licenseDriver: MockLicenseDriver!
     var presenter: LicenseListPresenter!
 
     override func setUp() {
         super.setUp()
-        license = .init(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
+        license = .init(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
         licenseDriver = MockLicenseDriver(getLicenses: [])
         presenter = LicenseListPresenter(licenseDriver: licenseDriver)
     }

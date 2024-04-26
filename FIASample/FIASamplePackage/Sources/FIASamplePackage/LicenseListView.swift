@@ -34,7 +34,7 @@ struct LicenseListView: View {
         .sheet(item: $presenter.seletedLicense) { license in
             NavigationStack {
                 ScrollView {
-                    Text(license.licenseBody)
+                    Text(license.body)
                         .padding()
                 }
                 .navigationTitle(license.name)
@@ -61,9 +61,6 @@ struct LicenseListView: View {
 #Preview("Samples") {
     NavigationStack {
         LicenseListView(licenseDriver: MockLicenseDriver(getLicenses: [
-            .init(name: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜1", url: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜", licenseBody: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜"),
-            .init(name: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜2", url: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜", licenseBody: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜"),
-            .init(name: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜3", url: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜", licenseBody: "長いライセンス名だよ〜〜〜〜〜〜〜〜〜〜"),
         ]))
     }
 }

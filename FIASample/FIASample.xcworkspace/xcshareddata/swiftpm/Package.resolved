@@ -1,5 +1,5 @@
 {
-  "originHash" : "31a18bf66b0b3b4de09d1ddf4754c567214265501d70a10d0f134447f3bd2073",
+  "originHash" : "9be308d8a98697e89e4d2dc770cde35ed8a0f84dad0926d6d64532506ff629d9",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -98,6 +98,15 @@
       "state" : {
         "revision" : "0828b88c1a6130d56ede2cc6c41ec50068a7ebd6",
         "version" : "0.7.0"
+      }
+    },
+    {
+      "identity" : "licensesplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/maiyama18/LicensesPlugin",
+      "state" : {
+        "revision" : "b303f6b92427d6236e63bd75b559f095101817aa",
+        "version" : "0.1.6"
       }
     },
     {

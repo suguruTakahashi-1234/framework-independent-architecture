@@ -11,6 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/cybozu/LicenseList.git", from: "0.7.0"),
+        .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk", from: "10.24.0"),
     ],
     targets: [
@@ -18,6 +19,9 @@ let package = Package(
             name: "FIASamplePackage",
             dependencies: [
                 .product(name: "LicenseList", package: "LicenseList")
+            ],
+            plugins: [
+                .plugin(name: "LicensesPlugin", package: "LicensesPlugin"),
             ]
         ),
         .testTarget(

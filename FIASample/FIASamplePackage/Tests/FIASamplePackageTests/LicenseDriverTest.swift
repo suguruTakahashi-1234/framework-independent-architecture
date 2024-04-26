@@ -7,7 +7,6 @@
 
 import XCTest
 @testable import FIASamplePackage
-import LicenseList
 
 final class LicenseDriverTest: XCTestCase {
     var licenseDriver: LicenseDriver!
