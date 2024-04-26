@@ -8,20 +8,30 @@
 import SwiftUI
 
 public struct ContentView: View {
-    public init() {}
+    private let buildScheme: BuildScheme
+    
+    public init(buildScheme: BuildScheme) {
+        self.buildScheme = buildScheme
+    }
     
     public var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            List {
+                NavigationLink {
+                    LicenseListView()
+                } label: {
+                    Text("Licenses")
+                }
+            }
+            .navigationTitle(buildScheme.rawValue)
         }
-        .padding()
     }
 }
 
-#Preview {
-    ContentView()
+#Preview("Development") {
+    ContentView(buildScheme: .development)
 }
 
+#Preview("Production") {
+    ContentView(buildScheme: .production)
+}
