@@ -11,20 +11,22 @@ import LicenseList
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: LicenseList.Library!
+    var licenseDriver: MockLicenseDriver!
     var presenter: LicenseListPresenter!
-    
+
     override func setUp() {
         super.setUp()
-        presenter = LicenseListPresenter()
         license = .init(name: UUID().uuidString, url: UUID().uuidString, licenseBody: UUID().uuidString)
+        licenseDriver = MockLicenseDriver(getLicenses: [])
+        presenter = LicenseListPresenter(licenseDriver: licenseDriver)
     }
-    
+
     func testOnAppear() {
-        XCTAssertEqual(presenter.licenses.isEmpty, true)
+        XCTAssertEqual(licenseDriver.getLicensesCounter, 0)
         presenter.onAppear()
-        XCTAssertEqual(presenter.licenses.isEmpty, false)
+        XCTAssertEqual(licenseDriver.getLicensesCounter, 1)
     }
-    
+
     func testTapLicense() {
         XCTAssertEqual(presenter.seletedLicense, nil)
         presenter.onTapLicense(license)
