@@ -12,7 +12,7 @@ import DomainLayer
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!
     var licenseDriver: MockLicenseDriver!
-    var presenter: LicenseListPresenter!
+    var presenter: LicenseListPresenter<MockDIContainer<MockLicenseDriver, MockLogDriver>>!
 
     override func setUp() {
         super.setUp()

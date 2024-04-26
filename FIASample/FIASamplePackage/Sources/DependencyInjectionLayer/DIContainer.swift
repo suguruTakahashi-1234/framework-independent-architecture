@@ -12,8 +12,8 @@ import PresentationLayer
 
 public class DIContainer: DIContainerDependency {
     public let buildScheme: BuildScheme = .production
-    public let licenseDriver: any DomainLayer.LicenseDriverProtocol = LicenseDriver()
-    public let logDriver: any DomainLayer.LogDriverProtocol = LogDriver()
+    public let licenseDriver = LicenseDriver()
+    public let logDriver = LogDriver()
     
     public init() {}
 }

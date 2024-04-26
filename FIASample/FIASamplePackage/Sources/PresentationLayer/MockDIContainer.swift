@@ -7,12 +7,12 @@
 
 import DomainLayer
 
-public class MockDIContainer: DIContainerDependency {
+public class MockDIContainer<LicenseDriver: LicenseDriverProtocol, LogDriver: LogDriverProtocol>: DIContainerDependency {
     public let buildScheme: BuildScheme
-    public let licenseDriver: any DomainLayer.LicenseDriverProtocol
-    public let logDriver: any DomainLayer.LogDriverProtocol
-    
-    public init(buildScheme: BuildScheme = .development, licenseDriver: any DomainLayer.LicenseDriverProtocol = MockLicenseDriver(getLicenses: .samples), logDriver: any DomainLayer.LogDriverProtocol = MockLogDriver()) {
+    public let licenseDriver: LicenseDriver
+    public let logDriver: LogDriver
+
+    public init(buildScheme: BuildScheme = .development, licenseDriver: LicenseDriver = MockLicenseDriver(getLicenses: .samples), logDriver: LogDriver = MockLogDriver()) {
         self.buildScheme = buildScheme
         self.licenseDriver = licenseDriver
         self.logDriver = logDriver

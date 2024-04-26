@@ -8,13 +8,13 @@
 import Combine
 import DomainLayer
 
-final class LicenseListPresenter: ObservableObject {
+final class LicenseListPresenter<Dependency: LicenseListPresenterDependency>: ObservableObject {
     @Published private(set) var licenses: [License] = []
     @Published var seletedLicense: License?
 
-    private let dependency: any LicenseListPresenterDependency
+    private let dependency: Dependency
     
-    init(dependency: any LicenseListPresenterDependency) {
+    init(dependency: Dependency) {
         self.dependency = dependency
     }
 

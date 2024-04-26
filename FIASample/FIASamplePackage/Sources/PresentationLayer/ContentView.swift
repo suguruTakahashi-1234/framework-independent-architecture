@@ -8,10 +8,10 @@
 import SwiftUI
 import DomainLayer
 
-public struct ContentView: View {
-    private let dependency: any DIContainerDependency
+public struct ContentView<Dependency: DIContainerDependency>: View {
+    private let dependency: Dependency
     
-    public init(dependency: any DIContainerDependency) {
+    public init(dependency: Dependency) {
         self.dependency = dependency
     }
     
