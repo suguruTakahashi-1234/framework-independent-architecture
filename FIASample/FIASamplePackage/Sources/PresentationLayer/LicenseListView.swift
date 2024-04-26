@@ -9,10 +9,10 @@ import SwiftUI
 import DomainLayer
 
 struct LicenseListView<Dependency: DIContainerDependency>: View {
-    @StateObject private var presenter: LicenseListPresenter<Dependency>
+    @State private var presenter: LicenseListPresenter<Dependency>
 
     public init(dependency: Dependency) {
-        _presenter = .init(wrappedValue: .init(dependency: dependency))
+        presenter = LicenseListPresenter(dependency: dependency)
     }
 
     var body: some View {

@@ -5,12 +5,13 @@
 //  Created by Suguru Takahashi on 2024/04/26.
 //
 
-import Combine
 import DomainLayer
+import Observation
 
-final class LicenseListPresenter<Dependency: LicenseListPresenterDependency>: ObservableObject {
-    @Published private(set) var licenses: [License] = []
-    @Published var seletedLicense: License?
+@Observable
+final class LicenseListPresenter<Dependency: LicenseListPresenterDependency> {
+    private(set) var licenses: [License] = []
+    var seletedLicense: License?
 
     private let dependency: Dependency
     
