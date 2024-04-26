@@ -22,7 +22,9 @@ let package = Package(
         ),
         .testTarget(
             name: "FIASamplePackageTests",
-            dependencies: ["FIASamplePackage"]
+            dependencies: [
+                "FIASamplePackage"
+            ]
         ),
     ]
 )
