@@ -2,19 +2,19 @@
 //  File.swift
 //  
 //
-//  Created by Suguru Takahashi on 2024/04/25.
+//  Created by Suguru Takahashi on 2024/04/26.
 //
 
 import SwiftUI
 import DomainLayer
 
 struct LicenseListView<Dependency: DIContainerDependency>: View {
-    @State private var presenter: LicenseListPresenter<Dependency>
+    @StateObject private var presenter: LicenseListPresenter<Dependency>
 
-    init(dependency: Dependency) {
-        presenter = LicenseListPresenter(dependency: dependency)
+    public init(dependency: Dependency) {
+        _presenter = .init(wrappedValue: .init(dependency: dependency))
     }
-    
+
     var body: some View {
         VStack {
             if presenter.licenses.isEmpty {
@@ -32,7 +32,7 @@ struct LicenseListView<Dependency: DIContainerDependency>: View {
             }
         }
         .navigationTitle("Licenses")
-        .sheet(item: $presenter.selectedLicense, content: { license in
+        .sheet(item: $presenter.seletedLicense, content: { license in
             NavigationStack {
                 ScrollView {
                     Text(license.body)
@@ -49,7 +49,7 @@ struct LicenseListView<Dependency: DIContainerDependency>: View {
 
 #Preview("Samples") {
     let licenseDriver = MockLicenseDriver(getLicenses: .samples)
-    
+
     return NavigationStack {
         LicenseListView(dependency: MockDIContainer(licenseDriver: licenseDriver))
     }

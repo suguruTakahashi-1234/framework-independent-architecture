@@ -395,7 +395,7 @@ FIA について補足する日本語の Speaker Deck スライドを以下で�
 
 #### YouTube
 
-TODO: 
+- [【Swift】【クリーンアーキテクチャ】Clean Architecture で iOS アプリを爆速でビルドする方法 Framework-Independent Architecture (FIA)](https://www.youtube.com/watch?v=5blwYSQcL2E)
 
 ## Contact
 

@@ -2,22 +2,19 @@
 //  File.swift
 //  
 //
-//  Created by Suguru Takahashi on 2024/04/25.
+//  Created by Suguru Takahashi on 2024/04/26.
 //
 
 import Foundation
 import DomainLayer
-import PresentationLayer
 import FrameworkLayer
+import PresentationLayer
 
 public class DIContainer: DIContainerDependency {
-    public let buildScheme: BuildScheme
-    public let licenseDriver: FrameworkLayer.LicenseDriver
-    public let logDriver: FrameworkLayer.LogDriver
+    public let buildScheme: BuildScheme = .production
+    public let licenseDriver = LicenseDriver()
+    public let logDriver = LogDriver()
     
-    public init(buildScheme: BuildScheme = .production) {
-        self.buildScheme = buildScheme
-        self.licenseDriver = .init()
-        self.logDriver = .init()
-    }
+    public init() {}
 }
+

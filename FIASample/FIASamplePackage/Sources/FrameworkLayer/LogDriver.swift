@@ -2,14 +2,13 @@
 //  File.swift
 //  
 //
-//  Created by Suguru Takahashi on 2024/04/25.
+//  Created by Suguru Takahashi on 2024/04/26.
 //
 
 import DomainLayer
-import Foundation
-import FirebaseCrashlytics // Depends on heavy third-party libraries as an example
+import FirebaseCrashlytics
 
-public class LogDriver: LogDriverProtocol {
+public final class LogDriver: LogDriverProtocol {
     public init() {}
     
     public func log(_ even: Any, file: String, function: String, line: Int) {
@@ -21,4 +20,3 @@ public class LogDriver: LogDriverProtocol {
         print("[Crashlytics LogDriver] \(logMessage)")
     }
 }
-

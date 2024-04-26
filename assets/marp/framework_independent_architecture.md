@@ -141,6 +141,8 @@ class: invert
 
 ## リアーキテクチャを通して FIA での実装の実演
 
+[LIVE 動画リンク](https://www.youtube.com/watch?v=5blwYSQcL2E)
+
 ---
 
 ## リアーキテクチャのステップ

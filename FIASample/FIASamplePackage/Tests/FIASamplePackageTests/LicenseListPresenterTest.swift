@@ -2,36 +2,34 @@
 //  File.swift
 //  
 //
-//  Created by Suguru Takahashi on 2024/04/25.
+//  Created by Suguru Takahashi on 2024/04/26.
 //
 
 import XCTest
 @testable import PresentationLayer
 import DomainLayer
-import FrameworkLayer
-import DependencyInjectionLayer
 
 final class LicenseListPresenterTest: XCTestCase {
     var license: License!
-    var dependency: DIContainer!
-    var presenter: LicenseListPresenter<DIContainer>!
-    
+    var licenseDriver: MockLicenseDriver!
+    var presenter: LicenseListPresenter<MockDIContainer<MockLicenseDriver, MockLogDriver>>!
+
     override func setUp() {
         super.setUp()
-        license = LicenseDriver().getLicenses().first!
-        dependency = DIContainer()
-        presenter = LicenseListPresenter(dependency: dependency)
+        license = .init(id: UUID().uuidString, name: UUID().uuidString, body: UUID().uuidString)
+        licenseDriver = MockLicenseDriver(getLicenses: [])
+        presenter = LicenseListPresenter(dependency: MockDIContainer(licenseDriver: licenseDriver))
     }
-    
+
     func testOnAppear() {
-        XCTAssertEqual(presenter.licenses.isEmpty, true)
+        XCTAssertEqual(licenseDriver.getLicensesCounter, 0)
         presenter.onAppear()
-        XCTAssertEqual(presenter.licenses.isEmpty, false)
+        XCTAssertEqual(licenseDriver.getLicensesCounter, 1)
     }
-    
-    func testOnTapLicense() {
-        XCTAssertEqual(presenter.selectedLicense, nil)
+
+    func testTapLicense() {
+        XCTAssertEqual(presenter.seletedLicense, nil)
         presenter.onTapLicense(license)
-        XCTAssertEqual(presenter.selectedLicense, license)
+        XCTAssertEqual(presenter.seletedLicense, license)
     }
 }

@@ -2,7 +2,7 @@
 //  File.swift
 //  
 //
-//  Created by Suguru Takahashi on 2024/04/25.
+//  Created by Suguru Takahashi on 2024/04/26.
 //
 
 import XCTest
@@ -17,6 +17,6 @@ final class LicenseDriverTest: XCTestCase {
     }
 
     func testGetLicenses() {
-        XCTAssertEqual(licenseDriver.getLicenses().first?.name, "abseil")
+        XCTAssertEqual(licenseDriver.getLicenses().first!.name, "abseil")
     }
 }

@@ -7,10 +7,10 @@ let package = Package(
     name: "FIASamplePackage",
     platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
-        .library(name: "DependencyInjectionLayer", targets: ["DependencyInjectionLayer"]),
+        .library(name: "PresentationLayer", targets: ["PresentationLayer"]),
         .library(name: "DomainLayer", targets: ["DomainLayer"]),
         .library(name: "FrameworkLayer", targets: ["FrameworkLayer"]),
-        .library(name: "PresentationLayer", targets: ["PresentationLayer"]),
+        .library(name: "DependencyInjectionLayer", targets: ["DependencyInjectionLayer"]),
     ],
     dependencies: [
         .package(url: "https://github.com/maiyama18/LicensesPlugin", from: "0.1.6"),
@@ -20,10 +20,14 @@ let package = Package(
         .target(
             name: "DependencyInjectionLayer",
             dependencies: [
-                "DomainLayer",
                 "PresentationLayer",
-                "FrameworkLayer"
+                "DomainLayer",
+                "FrameworkLayer",
             ]
+        ),
+        .target(
+            name: "PresentationLayer",
+            dependencies: ["DomainLayer"]
         ),
         .target(
             name: "DomainLayer",
@@ -36,20 +40,16 @@ let package = Package(
                 .product(name: "FirebaseCrashlytics", package: "firebase-ios-sdk"),
             ],
             plugins: [
-                .plugin(name: "LicensesPlugin", package: "LicensesPlugin"),
+                .plugin(name: "LicensesPlugin", package: "LicensesPlugin")
             ]
-        ),
-        .target(
-            name: "PresentationLayer",
-            dependencies: ["DomainLayer"]
         ),
         .testTarget(
             name: "FIASamplePackageTests",
             dependencies: [
+                "PresentationLayer",
                 "DomainLayer",
                 "FrameworkLayer",
-                "PresentationLayer",
-                "DependencyInjectionLayer",
+                "DependencyInjectionLayer"
             ]
         ),
     ]
