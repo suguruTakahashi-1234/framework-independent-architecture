@@ -117,7 +117,7 @@ graph TD;
 
 </details>
 
-<details><summary>Domain layer</summary>
+<details><summary>Domain Layer</summary>
 
 #### Entity
 
@@ -145,18 +145,18 @@ public protocol LicenseDriverProtocol {
 
 </details>
 
-<details><summary>Presentation layer</summary>
+<details><summary>Presentation Layer</summary>
 
 #### View
 
 ```swift
-public struct LicenseListView<DIContainer: DIContainerDependency>: View {
-    private let diContainer: DIContainer
-    @State private var presenter: LicenseListPresenter<DIContainer>
+public struct LicenseListView<Dependency: DIContainerDependency>: View {
+    private let dependency: Dependency
+    @State private var presenter: LicenseListPresenter<Dependency>
 
-    public init(diContainer: DIContainer) {
-        self.diContainer = diContainer
-        presenter = LicenseListPresenter(diContainer: diContainer)
+    public init(dependency: Dependency) {
+        self.dependency = dependency
+        presenter = LicenseListPresenter(dependency: dependency)
     }
     
     public var body: some View {
@@ -199,18 +199,18 @@ public protocol LicenseListPresenterDependency {
 
 ```swift
 @Observable
-final class LicenseListPresenter<DIContainer: LicenseListPresenterDependency> {
+final class LicenseListPresenter<Dependency: LicenseListPresenterDependency> {
     private(set) var licenses: [License] = []
     var selectedLicense: License?
     
-    private let diContainer: DIContainer
+    private let dependency: Dependency
     
-    init(diContainer: DIContainer) {
-        self.diContainer = diContainer
+    init(dependency: dependency) {
+        self.dependency = dependency
     }
 
     func onAppear() {
-        licenses = diContainer.licenseDriver.getLicenses()
+        licenses = dependency.licenseDriver.getLicenses()
     }
 
     func onTapLicense(_ license: License) {
@@ -298,7 +298,7 @@ public final class DIContainer<LicenseDriver: LicenseDriverProtocol>: DIContaine
 
 </details>
 
-<details><summary>Application layer (Entry Point)</summary>
+<details><summary>Application Layer (Entry Point)</summary>
 
 #### Development App
 
@@ -309,7 +309,7 @@ struct DevelopmentApp: App {
         WindowGroup {
             NavigationStack {
                 // Mock DI Container
-                LicenseListView(diContainer: MockDIContainer())
+                LicenseListView(dependency: MockDIContainer())
             }
         }
     }
@@ -325,7 +325,7 @@ struct ProductionApp: App {
         WindowGroup {
             NavigationStack {
                 // Actual DI Container
-                LicenseListView(diContainer: DIContainer())
+                LicenseListView(dependency: DIContainer())
             }
         }
     }
